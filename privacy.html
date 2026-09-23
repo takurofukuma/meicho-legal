@@ -3,7 +3,7 @@
 <title>プライバシーポリシー - 名著伴読</title><link rel="stylesheet" href="style.css"></head>
 <body>
 <h1>プライバシーポリシー</h1>
-<p>アプリ名：名著伴読（めいちょばんどく）<br>開発者：KawaApp Studio<br>制定日：2026年9月23日</p>
+<p>アプリ名：名著伴読（めいちょばんどく）<br>開発者：KawaApp Studio<br>制定日：2026年9月23日（同日改定: 回答の保存期間・購読情報・イベントの記録方法を明記）</p>
 
 <h2>基本方針</h2>
 <p>本アプリは、氏名・メールアドレス・電話番号・位置情報・連絡先など、個人を特定できる情報を収集しません。アカウント登録はありません。広告配信・トラッキング目的の SDK は組み込んでいません。</p>
@@ -14,9 +14,9 @@
 <h2>サーバーへ送信される情報</h2>
 <p>本アプリの一部の機能は、開発者が運用するサーバー（Cloudflare 上）と通信します。送信されるのは次の情報です。</p>
 <ul>
-<li><b>質問の内容</b>：AI に質問すると、質問の本文と、読んでいる作品・位置の情報がサーバーへ送られます。サーバーは著者の原文を検索し、回答を生成するために質問と検索結果を Anthropic 社の API へ送信します。<b>質問の本文はサーバーに保存しません。</b>保存するのは、匿名 ID・日時・対象の著者・利用量（トークン数）・応答時間・棄権や拒否の有無・アクセス元の国など、運用に必要な記録だけです。</li>
-<li><b>利用状況のイベント</b>：画面の到達、読了、理解確認の結果、購入画面の表示などを匿名 ID に紐づけて記録します。サービスの改善にのみ使います。</li>
-<li><b>購読状態</b>：月額プランの購入・更新・解約は Apple が処理します。クレジットカード番号などの決済情報は開発者に渡りません。Apple のレシート情報は購読管理サービス RevenueCat が匿名 ID とともに検証し、購読の有無だけが開発者のサーバーへ通知されます。</li>
+<li><b>質問の内容</b>：AI に質問すると、質問の本文と、読んでいる作品・位置の情報がサーバーへ送られます。サーバーは著者の原文を検索し、回答を生成するために質問と検索結果を Anthropic 社の API へ送信します。質問文そのものは記録に残しませんが、<b>生成した回答本文（引用を含む）は、通信が途中で切れたときに同じ回答を取り直せるよう、匿名 ID と質問ごとの識別子に紐づけて 7 日間保存し、その後は本文を消去します（識別子の記録は 30 日で削除）。</b>回答には質問の内容が反映されることがあります。このほか、匿名 ID・日時・対象の著者・利用量（トークン数）・応答時間・棄権や拒否の有無・アクセス元の国など、運用に必要な記録を保存します。</li>
+<li><b>利用状況のイベント</b>：画面の到達、読了、購入画面の表示などの<b>日ごとの件数</b>を記録します（イベントに匿名 ID は含めません）。サービスの改善にのみ使います。</li>
+<li><b>購読状態</b>：月額プランの購入・更新・解約は Apple が処理します。クレジットカード番号などの決済情報は開発者に渡りません。Apple のレシート情報は購読管理サービス RevenueCat が匿名 ID とともに検証し、購読の有無・商品・期間などの購読情報が開発者のサーバーへ通知・保存されます。</li>
 </ul>
 
 <h2>端末内にのみ保存される情報</h2>
@@ -41,5 +41,5 @@
 <p><a href="mailto:asonedaywillberefreshing@gmail.com">asonedaywillberefreshing@gmail.com</a></p>
 
 <h2>Privacy Policy (English)</h2>
-<p>Meicho Bandoku does not collect personally identifiable information and has no account registration, advertising, or tracking SDKs. On first launch the app generates a random anonymous user ID on the device, used only for question quotas, subscription status, and usage statistics. When you ask a question, the question text and the current reading position are sent to the developer's server (Cloudflare), which retrieves the author's original text and sends the question with the retrieved passages to Anthropic's API to generate an answer. Question text is not stored on the server; only operational records (anonymous ID, timestamp, author, token usage, latency, country) are kept. Purchases are processed by Apple; receipts are validated by RevenueCat together with the anonymous ID, and only the subscription status reaches the developer's server. Reading positions and notes are stored only on your device. Data may be processed outside Japan by the providers named above. For deletion requests, contact the address above.</p>
+<p>Meicho Bandoku does not collect personally identifiable information and has no account registration, advertising, or tracking SDKs. On first launch the app generates a random anonymous user ID on the device, used only for question quotas, subscription status, and usage statistics. When you ask a question, the question text and the current reading position are sent to the developer's server (Cloudflare), which retrieves the author's original text and sends the question with the retrieved passages to Anthropic's API to generate an answer. Generated answers (including quotations) are stored with the anonymous ID for 7 days so that an interrupted response can be retrieved again, then the text is deleted (identifiers are deleted after 30 days); operational records (anonymous ID, timestamp, author, token usage, latency, country) are also kept. Purchases are processed by Apple; receipts are validated by RevenueCat together with the anonymous ID, and only the subscription status reaches the developer's server. Reading positions and notes are stored only on your device. Data may be processed outside Japan by the providers named above. For deletion requests, contact the address above.</p>
 </body></html>
