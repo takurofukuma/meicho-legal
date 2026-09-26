@@ -48,7 +48,8 @@ table.units td.n,table.units th.n{text-align:right;white-space:nowrap}
 .page a{color:#6B4F2A;text-underline-offset:.28em;
         text-decoration-color:color-mix(in srgb,#6B4F2A 65%,transparent)}
 .page a:hover{text-decoration-color:#6B4F2A}
-ul.also a,nav.crumbs a,.meta a,.brand a{display:inline-block;padding-block:11px;margin-block:-11px}
+ul.also a,nav.crumbs a,.meta a,.brand a,.page h2 > a{
+  display:inline-block;padding-block:11px;margin-block:-11px}
 :focus-visible{outline:2px solid #6B4F2A;outline-offset:3px;border-radius:4px}
 /* .page a の色が .cta の白を上書きして、ボタンが文字の無い茶色い塊になっていた */
 .page .cta,.page .cta:hover{color:#fff;text-decoration:none}
