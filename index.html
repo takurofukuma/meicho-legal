@@ -1,32 +1,127 @@
 <!DOCTYPE html>
 <html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>名著伴読｜青空文庫の名作を、原文のまま読み切る</title>
-<meta name="description" content="夏目漱石・太宰治・芥川龍之介ら17人の著作を原文のまま読めます。分からない箇所を聞くと、著者本人の文章を一字一句引用して答えます。72作品の原文をこのページから読み始められます。">
-<meta property="og:title" content="名著伴読｜青空文庫の名作を、原文のまま読み切る">
-<meta property="og:description" content="原文を読みながら、分からないところを著者に聞ける読書アプリ。">
+<title>名著伴読｜名著を、分からないまま閉じない。</title>
+<meta name="description" content="夏目漱石・太宰治・芥川龍之介ら17人の著作を原文のまま読めます。気になる一節で止まったら、その場で質問。著者本人の文章を一字一句そのまま引いた答えが返り、原文のその箇所へ戻れます。">
+<meta property="og:title" content="名著伴読｜名著を、分からないまま閉じない。">
+<meta property="og:description" content="分からない一節を、その場で著者に聞ける読書アプリ。答えには必ず原文の引用がつきます。">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://takurofukuma.github.io/meicho-legal/">
-<link rel="canonical" href="https://takurofukuma.github.io/meicho-legal/">
+<meta property="og:url" content="https://meicho.app/">
+<meta property="og:image" content="https://meicho.app/img/ask.webp">
+<link rel="canonical" href="https://meicho.app/">
 <link rel="stylesheet" href="style.css">
 <style>
- .lead{font-size:1.08rem;line-height:1.9}
- .cta{display:inline-block;background:#6B4F2A;color:#fff;padding:13px 22px;border-radius:26px;text-decoration:none;font-weight:bold;margin:10px 0}
- .note{color:#6b6b6b;font-size:.85rem}
- ul.authors li{margin:.6em 0;line-height:1.9}
- .foot{margin-top:34px;padding-top:14px;border-top:1px solid #E6DCCB}
+ .hero{font-size:1.5rem;font-weight:bold;line-height:1.55;margin:.2em 0 .5em}
+ .lead{font-size:1.05rem;line-height:1.95}
+ .cta{display:inline-block;background:#6B4F2A;color:#fff;padding:14px 26px;border-radius:28px;text-decoration:none;font-weight:bold;margin:12px 0}
+ .note{color:#6b6b6b;font-size:.85rem;line-height:1.7}
+ .shots{display:flex;gap:14px;overflow-x:auto;padding:6px 0 10px;margin:0 -4px}
+ .shots figure{margin:0;flex:0 0 auto;width:220px}
+ .shots img{width:100%;height:auto;border:1px solid #E6DCCB;border-radius:14px;display:block}
+ .shots figcaption{font-size:.8rem;color:#6b6b6b;margin-top:6px;line-height:1.6}
+ blockquote.q{margin:10px 0;padding:10px 14px;border-left:3px solid #C9B79A;background:#FBF7F0;line-height:1.9}
+ .plans{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
+ .plan{flex:1 1 240px;border:1px solid #E6DCCB;border-radius:14px;padding:16px 18px;background:#fff}
+ .plan h3{margin:0 0 6px;font-size:1.05rem}
+ .plan .price{font-size:1.35rem;font-weight:bold;color:#6B4F2A}
+ .plan ul{margin:8px 0 0;padding-left:1.1em}
+ .plan li{margin:.35em 0;line-height:1.7}
+ ul.concerns{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+ ul.concerns li{flex:1 1 220px}
+ ul.concerns a{display:block;border:1px solid #E6DCCB;border-radius:12px;padding:12px 14px;background:#fff;text-decoration:none;color:inherit}
+ ul.concerns b{display:block;font-size:1rem}
+ ul.concerns span{display:block;font-size:.8rem;color:#6b6b6b;margin-top:3px}
+ ul.authors li{margin:.6em 0;line-height:1.95}
+ .foot{margin-top:36px;padding-top:14px;border-top:1px solid #E6DCCB}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "名著伴読", "url": "https://takurofukuma.github.io/meicho-legal/", "inLanguage": "ja", "description": "青空文庫と国立国会図書館デジタルコレクションの公開著作を原文のまま読み、分からない箇所を著者本人の文章の引用つきで聞ける読書アプリ。"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "名著伴読", "applicationCategory": "BookApplication", "operatingSystem": "iOS", "inLanguage": "ja", "url": "https://meicho.app/", "offers": [{"@type": "Offer", "price": "980", "priceCurrency": "JPY", "name": "月額プラン"}, {"@type": "Offer", "price": "7800", "priceCurrency": "JPY", "name": "年額プラン（7日間無料）"}], "description": "青空文庫と国立国会図書館デジタルコレクションの公開著作を原文のまま読み、分からない箇所を著者本人の文章の逐語引用つきで聞ける読書アプリ。"}</script>
 </head>
 <body>
 <h1>名著伴読（めいちょばんどく）</h1>
-<p class="lead">青空文庫と国立国会図書館デジタルコレクションの公開著作を、<b>原文のまま</b>読むためのアプリです。
-分からない箇所を聞くと、<b>著者本人の文章を一字一句そのまま引用して</b>答えます。
-引用は原文と照合したものだけを出し、触れると原文のその箇所へ移動します。</p>
+<p class="hero">名著を、分からないまま閉じない。</p>
+<p class="lead">気になる一節で立ち止まったら、その場で質問できます。
+返ってくる答えには、<b>著者本人の文章を一字一句そのまま引いた引用</b>がつきます。
+引用に触れると原文のその箇所へ移動して、前後を読み確かめられます。</p>
 
-<p><a class="cta" href="https://apps.apple.com/jp/app/id6815016992">App Store で見る</a></p>
+<div class="shots">
+<figure><img src="img/ask.webp" alt="寺田寅彦に質問して、原文の引用つきで答えが返っている画面" loading="lazy" width="480" height="1040"><figcaption>聞くと、著者の言葉づかいで答えが返る</figcaption></figure>
+<figure><img src="img/quotes.webp" alt="回答の下に原文引用が3件並んでいる画面" loading="lazy" width="480" height="1040"><figcaption>根拠は必ず原文の引用。触れると原文へ</figcaption></figure>
+<figure><img src="img/reader.webp" alt="縦書きで原文を読んでいる画面" loading="lazy" width="480" height="1040"><figcaption>縦書きの原文。読み上げ・付箋つき</figcaption></figure>
+</div>
 
-<h2>原文をこのページから読み始められます</h2>
-<p>下の作品は、<b>はじめの5分ぶんを原文のまま</b>このサイトで読めます。続きはアプリです。</p>
+<p><a class="cta" href="https://apps.apple.com/jp/app/id6815016992">App Store で無料ではじめる</a></p>
+<p class="note">無料で、選んだ著者の1作品と質問5問。使い切ったあとも毎日1問は聞けます。</p>
+
+<h2>この一節が分からない。そこから聞けます。</h2>
+<p>たとえば芥川龍之介『羅生門』を読みながら、こう聞いたとします。</p>
+<p class="lead"><b>「下人はなぜ盗人になったのですか」</b></p>
+<p>アプリは芥川龍之介の一人称で答えたうえで、根拠として次の3か所を引用します。
+<b>すべて原文からの逐語引用です。</b></p>
+<blockquote class="q">下人は、饑死をするか盗人になるかに、迷わなかったばかりではない。</blockquote>
+<blockquote class="q">では、己が引剥をしようと恨むまいな。己もそうしなければ、饑死をする体なのだ。</blockquote>
+<blockquote class="q">この髪を抜いてな、この髪を抜いてな、鬘にしようと思うたのじゃ。</blockquote>
+<p class="note">引用はサーバで原文と照合し、一致しないものは表示しません。引用に触れると原文のその箇所へ移動します。
+回答の文そのものは AI が著作をもとに再構成したもので、<b>本人の発言ではありません</b>。</p>
+<p><a href="works/000127.html">『羅生門』の原文を、このサイトで5分ぶん読む →</a></p>
+
+<h2>まずは無料で、読む・聞くを試す</h2>
+<div class="plans">
+  <div class="plan">
+    <h3>無料</h3>
+    <div class="price">¥0</div>
+    <ul>
+      <li>選んだ著者の<b>1作品</b>を最後まで読む</li>
+      <li>質問 <b>5問</b>（使い切ったあとも毎日1問）</li>
+      <li>今日の一節・ホーム画面のウィジェット</li>
+    </ul>
+  </div>
+  <div class="plan">
+    <h3>月額プラン</h3>
+    <div class="price">¥980 <span class="note">／月</span></div>
+    <ul>
+      <li>収録している<b>17人・約2,000作品</b>を読む</li>
+      <li>質問は<b>毎月100問</b>まで</li>
+      <li>読了・理解確認・出典つきのノート</li>
+    </ul>
+  </div>
+  <div class="plan">
+    <h3>年額プラン</h3>
+    <div class="price">¥7,800 <span class="note">／年</span></div>
+    <ul>
+      <li><b>7日間の無料体験</b>つき（初回のみ・体験中の質問は20問まで）</li>
+      <li>月額12か月ぶんより<b>4か月ぶんお得</b></li>
+      <li>内容は月額と同じ</li>
+    </ul>
+  </div>
+</div>
+<p class="note">自動更新です。期間終了の24時間前までに解約すれば次回の請求は発生しません。
+解約の手順は<a href="support.html">サポート</a>に、条件は<a href="terms.html">利用規約</a>にあります。</p>
+
+<h2>読みたい本が決まっていなくても</h2>
+<p>いま気になっていることから、その主題を書いた著者に入れます。</p>
+<ul class="concerns">
+<li><a href="works/047061.html"><b>人に信用されたい</b><span>仕事｜福沢諭吉</span></a></li>
+<li><a href="works/002359.html"><b>ものの見方を変えたい</b><span>科学｜寺田寅彦</span></a></li>
+<li><a href="works/046322.html"><b>何のために働くのか</b><span>生き方｜宮沢賢治</span></a></li>
+<li><a href="works/000301.html"><b>自分が嫌になる</b><span>人間｜太宰治</span></a></li>
+<li><a href="works/000127.html"><b>不安が消えない</b><span>こころ｜芥川龍之介</span></a></li>
+<li><a href="works/051821.html"><b>良いものを選びたい</b><span>美と暮らし｜柳宗悦</span></a></li>
+<li><a href="works/054987.html"><b>食を大事にしたい</b><span>食と美｜北大路魯山人</span></a></li>
+</ul>
+
+<h2>読んだことを、自分の言葉にする</h2>
+<div class="shots">
+<figure><img src="img/pick.webp" alt="いま、どれが近いですか という選択画面" loading="lazy" width="480" height="1040"><figcaption>悩みから著者を選ぶ</figcaption></figure>
+<figure><img src="img/home.webp" alt="今日の一節と読みかけの作品が並ぶホーム画面" loading="lazy" width="480" height="1040"><figcaption>今日の一節と、読みかけの続き</figcaption></figure>
+</div>
+<ul>
+<li>気になった一節に<b>付箋</b>を挟む</li>
+<li>読み終えたら<b>理解確認</b>で、読み取れたかを確かめる</li>
+<li>考えたことを<b>ノート</b>に残す（出典つき）</li>
+<li>長い作品は節ごとに区切ってあり、<b>1日1節なら何日で読み切れるか</b>が分かります</li>
+</ul>
+
+<h2>収録作品</h2>
+<p>下の72作品は、<b>はじめの5分ぶんを原文のまま</b>このサイトで読めます。続きはアプリです。</p>
 <ul class="authors">
 <li><b>芥川龍之介</b>　<a href="works/000127.html">『羅生門』</a>・<a href="works/000092.html">『蜘蛛の糸』</a>・<a href="works/000042.html">『鼻』</a>・<a href="works/000158.html">『侏儒の言葉』</a>・<a href="works/000069.html">『河童』</a></li>
 <li><b>太宰治</b>　<a href="works/000301.html">『人間失格』</a>・<a href="works/001567.html">『走れメロス』</a>・<a href="works/001565.html">『斜陽』</a>・<a href="works/002253.html">『ヴィヨンの妻』</a>・<a href="works/000270.html">『富嶽百景』</a></li>
@@ -48,14 +143,7 @@
 </ul>
 <p><a href="works/">収録作品の一覧（文字数と読了の目安つき）</a></p>
 
-<h2>このアプリでできること</h2>
-<ul>
-<li>原文を読む（縦書き・横書き・読み上げ・付箋・読書位置の保存）</li>
-<li>分からない箇所をその場で聞く。答えは著者本人の文章の引用つき</li>
-<li>読み切る（読了・理解確認・出典つきのノート）</li>
-<li>今日の一節が毎日ひとつ。ホーム画面のウィジェットにも出せます</li>
-</ul>
-<p class="note">回答は AI が著作をもとに著者の一人称で再構成した言葉で、<b>本人の発言ではありません</b>。根拠は必ず原文の引用で示します。</p>
+<p><a class="cta" href="https://apps.apple.com/jp/app/id6815016992">App Store で無料ではじめる</a></p>
 
 <div class="foot">
 <ul>
