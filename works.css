@@ -1,3 +1,69 @@
+/* 色は「紙」と「墨」の階調だけで組む。生の色を散らさない。
+   ここに無い色を CSS のどこかに書いたら、それは設計から外れている。
+
+   考え方（和書の造本に寄せる）
+     紙  paper       … 地。白ではなく生成り。長時間読んでも刺さらない
+         raised      … 一段持ち上げた面（札・カード）。紙を重ねた感じ
+         sunken      … 沈めた面（引用・囲み・表の自社列）。刷り込んだ感じ
+     罫  rule        … 細い仕切り。紙より少し濃いだけ
+         rule-strong … 見出しの下や表の頭。ここだけ見える濃さ
+     墨  ink         … 本文。純黒にしない（紙に刷った墨は黒より温かい）
+         ink-2       … 副文
+         ink-3       … 注記。**これでも地に対して 4.5:1 を切らない**
+     差色 accent     … 栞と印の色。アプリの色に合わせた茶
+         on-accent   … その上に乗る字
+
+   夜は「黒い画面」ではなく**灯りの下の紙**にする。色相を保ったまま反転させ、
+   同じ役割には同じ名前を当てる（後付けで個別に上書きしない）。 */
+:root{
+  color-scheme:light dark;
+
+  --paper:#F7F3EA;
+  --raised:#FFFDF9;
+  --sunken:#EDE6D8;
+  --rule:#DCD2C0;
+  --rule-strong:#B9AB93;
+
+  --ink:#1C1917;      /* 紙に 15.6:1 */
+  --ink-2:#4E4842;    /* 紙に  8.1:1 */
+  --ink-3:#6A635A;    /* 紙に  5.3:1 — 注記でも基準を割らない */
+
+  --accent:#6B4F2A;      /* 紙に 6.9:1 */
+  --accent-strong:#523B1E;
+  --on-accent:#FFFDF9;
+
+  --serif:'Hiragino Mincho ProN','Hiragino Mincho Pro','Yu Mincho','YuMincho',
+          'Noto Serif JP','Noto Serif CJK JP',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Hiragino Kaku Gothic ProN',
+         'Noto Sans JP',sans-serif;
+
+  --shadow-1:0 1px 2px rgb(28 25 23 / 5%);
+  --shadow-2:0 10px 30px rgb(28 25 23 / 8%);
+  --shadow-3:0 20px 48px rgb(28 25 23 / 12%);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#15120E;
+    --raised:#1F1B15;
+    --sunken:#272119;
+    --rule:#3A332A;
+    --rule-strong:#5C5344;
+
+    --ink:#ECE5D8;      /* 紙に 14.3:1 */
+    --ink-2:#C2B9A8;    /* 紙に  9.4:1 */
+    --ink-3:#9C9386;    /* 紙に  6.0:1 */
+
+    --accent:#DDBB86;      /* 暗い紙に 9.6:1。差色は明るい側へ回す */
+    --accent-strong:#EDD0A4;
+    --on-accent:#15120E;
+
+    --shadow-1:0 1px 2px rgb(0 0 0 / 40%);
+    --shadow-2:0 10px 30px rgb(0 0 0 / 45%);
+    --shadow-3:0 20px 48px rgb(0 0 0 / 50%);
+  }
+}
+
+/* 色の token は pipeline/tokens.css。配るときに先頭へ焼き込む（build_site.py） */
 /* 作品ページ 72 本。商品の見本である原文が、規約ページと同じ角ゴ・白地で出ていた。
    site.css の上に重ねる（body の色・背景・字は site.css から来る）。 */
 .page{width:min(40em,calc(100% - 40px));margin-inline:auto;padding-block:28px 64px}
@@ -6,14 +72,14 @@
 .page h2{font-family:'Hiragino Mincho ProN','Hiragino Mincho Pro','Yu Mincho','YuMincho','Noto Serif JP','Noto Serif CJK JP',serif;font-size:clamp(18px,4.4vw,22px);font-weight:600;
          line-height:1.6;letter-spacing:.005em;margin:2.4em 0 .6em}
 .page p,.page li{margin:.7em 0}
-.meta{color:#655D53;font-size:14px;margin:0 0 .4em}
-.one{font-size:17px;color:#3D362E;margin:.2em 0 .8em}
-.lead{font-size:15px;color:#655D53;max-width:none;margin:.2em 0 1.6em}
+.meta{color:var(--ink-3);font-size:14px;margin:0 0 .4em}
+.one{font-size:17px;color:var(--ink-2);margin:.2em 0 .8em}
+.lead{font-size:15px;color:var(--ink-3);max-width:none;margin:.2em 0 1.6em}
 
 /* 原文。1 字下げと段落間の空きを両方やるとブログに見える。字下げだけ残す。
    両端揃えにすると右端が揃い、日本語の版面になる。
    text-autospace は掛けない（青空文庫の本文には既に和欧間の空白が入っている）。 */
-.orig{background:#FFFDF8;border:1px solid #E6DCCB;border-radius:2px;
+.orig{background:var(--raised);border:1px solid var(--rule);border-radius:2px;
       padding:clamp(20px,5vw,40px) clamp(18px,5vw,44px);margin:20px 0;
       text-autospace:no-autospace}
 .orig p{font-family:'Hiragino Mincho ProN','Hiragino Mincho Pro','Yu Mincho','YuMincho','Noto Serif JP','Noto Serif CJK JP',serif;font-size:clamp(16.5px,4.3vw,18px);
@@ -26,46 +92,36 @@
 .orig.verse{padding-inline:clamp(18px,8vw,64px)}
 .orig.verse p{text-indent:0;text-align:start;margin:0;line-height:2.1}
 
-.cut{background:#F3EBDD;border-left:4px solid #6B4F2A;padding:14px 16px;
+.cut{background:var(--sunken);border-left:4px solid var(--accent);padding:14px 16px;
      border-radius:0 6px 6px 0;margin:20px 0;font-size:15px;line-height:1.9}
-.cta{display:inline-block;background:#6B4F2A;color:#fff;padding:14px 26px;border-radius:6px;
+.cta{display:inline-block;background:var(--accent);color:var(--on-accent);padding:14px 26px;border-radius:6px;
      text-decoration:none;font-weight:700;font-size:16px;letter-spacing:.04em;margin:8px 0}
-.cta:hover{background:#573F20;color:#fff}
-.note{color:#655D53;font-size:13.5px;line-height:1.85;letter-spacing:.03em;max-width:32em}
+.cta:hover{background:var(--accent-strong);color:var(--on-accent)}
+.note{color:var(--ink-3);font-size:13.5px;line-height:1.85;letter-spacing:.03em;max-width:32em}
 
 /* 引用。原文の改行は原文の一部。潰すと詩が 1 行になる */
 blockquote.q{font-family:'Hiragino Mincho ProN','Hiragino Mincho Pro','Yu Mincho','YuMincho','Noto Serif JP','Noto Serif CJK JP',serif;white-space:pre-line;line-height:2;
-             border-left:2px solid #C9B79A;background:none;padding:2px 0 2px 1em;
+             border-left:2px solid var(--rule-strong);background:none;padding:2px 0 2px 1em;
              margin:1.1em 0;font-size:16.5px}
 
 ul.qa,ul.also{list-style:none;padding:0;margin:0}
-ul.qa li,ul.also li{padding:11px 0;border-bottom:1px solid #E6DCCB;margin:0;line-height:1.85}
+ul.qa li,ul.also li{padding:11px 0;border-bottom:1px solid var(--rule);margin:0;line-height:1.85}
 ul.also a{font-weight:500}
 table.units{border-collapse:collapse;width:100%;font-size:14.5px;margin:.6em 0}
-table.units th,table.units td{border:0;border-bottom:1px solid #E6DCCB;padding:8px 8px;text-align:left}
-table.units th{font-weight:700;color:#655D53;font-size:13px;letter-spacing:.04em}
+table.units th,table.units td{border:0;border-bottom:1px solid var(--rule);padding:8px 8px;text-align:left}
+table.units th{font-weight:700;color:var(--ink-3);font-size:13px;letter-spacing:.04em}
 table.units td.n,table.units th.n{text-align:right;white-space:nowrap}
-.page a{color:#6B4F2A;text-underline-offset:.28em;
-        text-decoration-color:color-mix(in srgb,#6B4F2A 65%,transparent)}
-.page a:hover{text-decoration-color:#6B4F2A}
+.page a{color:var(--accent);text-underline-offset:.28em;
+        text-decoration-color:color-mix(in srgb,var(--accent) 65%,transparent)}
+.page a:hover{text-decoration-color:var(--accent)}
 ul.also a,nav.crumbs a,.meta a,.brand a,.page h2 > a{
   display:inline-block;padding-block:11px;margin-block:-11px}
-:focus-visible{outline:2px solid #6B4F2A;outline-offset:3px;border-radius:4px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 /* .page a の色が .cta の白を上書きして、ボタンが文字の無い茶色い塊になっていた */
-.page .cta,.page .cta:hover{color:#fff;text-decoration:none}
+.page .cta,.page .cta:hover{color:var(--on-accent);text-decoration:none}
 
-@media (prefers-color-scheme:dark){
-  .orig{background:#201C16;border-color:#3A332A}
-  .cut{background:#26201A;border-left-color:#C9A063}
-  .one{color:#DCD3C4}
-  .page a{color:#D6B98A}
-  .page .cta,.page .cta:hover{background:#C9A063;color:#17140F}
-  blockquote.q{border-left-color:#7A6A50}
-  ul.qa li,ul.also li,table.units th,table.units td{border-bottom-color:#3A332A}
-  :focus-visible{outline-color:#D6B98A}
-}
 @media print{
-  .page .cta{background:none!important;color:#1F1B17!important;border:1px solid #1F1B17}
+  .page .cta{background:none!important;color:var(--ink)!important;border:1px solid var(--ink)}
   .page .cta[href^="http"]::after{content:" (" attr(href) ")";font-size:.8em;font-weight:400}
   .orig{break-inside:auto} table.units{break-inside:auto} tr{break-inside:avoid}
   thead{display:table-header-group}

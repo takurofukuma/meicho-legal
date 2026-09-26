@@ -19,18 +19,18 @@
 <link rel="stylesheet" href="../site.css">
 <style>
 .who{display:grid;grid-template-columns:120px minmax(0,1fr);gap:28px;align-items:start;padding-block:40px 8px}
-.who img,.who .no-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;border:1px solid #E6DCCB;display:block}
-.who .no-photo{background:#EFE7DA;color:#8A7A63;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif JP',serif;font-size:40px}
+.who img,.who .no-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;border:1px solid var(--rule);display:block}
+.who .no-photo{background:var(--sunken);color:var(--ink-3);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif JP',serif;font-size:40px}
 .themes{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:14px 0 0}
-.themes li{border:1px solid #E6DCCB;border-radius:999px;padding:5px 13px;font-size:13px;background:#fff}
+.themes li{border:1px solid var(--rule);border-radius:999px;padding:5px 13px;font-size:13px;background:var(--raised)}
 ul.booklist{list-style:none;padding:0;margin:0}
-ul.booklist li{padding:14px 0;border-bottom:1px solid #E6DCCB}
-ul.booklist a{color:#1F1B17;text-decoration:none}
+ul.booklist li{padding:14px 0;border-bottom:1px solid var(--rule)}
+ul.booklist a{color:var(--ink);text-decoration:none}
 ul.booklist a:hover b{text-decoration:underline}
-ul.booklist .dm{display:block;font-size:13.5px;color:#655D53;margin-top:4px}
+ul.booklist .dm{display:block;font-size:13.5px;color:var(--ink-3);margin-top:4px}
 ul.qa-list{list-style:none;padding:0;margin:0}
-ul.qa-list li{padding:11px 0;border-bottom:1px solid #E6DCCB}
-ul.qa-list .dm{font-size:13px;color:#655D53;margin-left:8px}
+ul.qa-list li{padding:11px 0;border-bottom:1px solid var(--rule)}
+ul.qa-list .dm{font-size:13px;color:var(--ink-3);margin-left:8px}
 @media(max-width:767px){
   .who{grid-template-columns:84px minmax(0,1fr);gap:18px}
   .who img,.who .no-photo{width:84px;height:84px}
