@@ -6,127 +6,23 @@
 <meta property="og:description" content="分からない一節を、その場で著者に聞ける読書アプリ。答えには必ず原文の引用がつきます。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://meicho.app/">
-<meta property="og:image" content="https://meicho.app/img/ask.webp">
+<meta property="og:image" content="https://meicho.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="名著伴読">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://meicho.app/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
-<style>
-/* 名著伴読 meicho.app のトップ。法的ページ用の style.css とは別にする。
-   ・ページ幅（1120）と本文幅（36em＝約36字）を分ける
-   ・明朝は見出しと原文、角ゴは説明と操作
-   ・画面の写しは横スクロールにせず、機能の説明の下へ2枚ずつ置く */
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{max-width:none;margin:0;padding:0;background:#FAF6EF;color:#1F1B17;
-     font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;
-     font-weight:400;line-height:1.9;letter-spacing:.02em}
-.container{width:min(1120px,calc(100% - 80px));margin-inline:auto}
-.section{padding-block:96px}
-.section + .section{border-top:1px solid #E6DCCB}
-.prose{max-width:36em;font-size:17px;line-height:1.95}
-.prose p{margin:0}
-.prose p + p{margin-top:1.25em}
-
-/* 見出し */
-.brand{font-size:17px;font-weight:700;letter-spacing:.08em;margin:0;padding-block:28px 0}
-.hero{font-family:'Noto Serif JP',serif;font-size:48px;font-weight:600;line-height:1.5;
-      letter-spacing:.03em;margin:0}
-.hero-line{display:block}
-.section-title{font-family:'Noto Serif JP',serif;font-size:32px;font-weight:600;
-               line-height:1.6;letter-spacing:.03em;margin:0 0 28px}
-h3{font-size:18px;font-weight:700;margin:0 0 6px;letter-spacing:.02em}
-
-/* 冒頭 */
-.hero-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:64px;
-             align-items:center;padding-block:56px 96px}
-.lead{max-width:32em;font-size:17px;line-height:1.95;margin:24px 0 28px}
-.hero-screen{margin:0;justify-self:center;width:280px}
-.hero-screen img{display:block;width:100%;height:auto;border:1px solid #E6DCCB;
-                 border-radius:20px;box-shadow:0 20px 48px rgb(31 27 23 / 12%)}
-
-/* 操作 */
-.cta{display:inline-block;background:#6B4F2A;color:#fff;padding:15px 30px;border-radius:6px;
-     text-decoration:none;font-weight:700;font-size:16px;letter-spacing:.04em}
-.cta:hover{background:#573F20}
-.note{color:#655D53;font-size:14px;line-height:1.75;max-width:36em}
-.text-link{color:#6B4F2A;text-decoration:underline;text-decoration-thickness:1px;
-           text-underline-offset:5px;line-height:1.8}
-
-/* 実例 */
-.example-question{font-size:18px;font-weight:700;line-height:1.8;margin:24px 0}
-.quote-group{max-width:42rem;padding:32px;background:#FFFDF9;border-block:1px solid #E6DCCB}
-blockquote.q{font-family:'Noto Serif JP',serif;margin:0;padding:0;border:0;background:none;
-             font-size:18px;line-height:2}
-blockquote.q + blockquote.q{margin-top:24px;padding-top:24px;border-top:1px solid #E6DCCB}
-
-/* 画面の写し */
-.shots{display:grid;grid-template-columns:repeat(2,minmax(0,220px));gap:32px;margin:32px 0 0}
-.shots figure{width:auto;min-width:0;margin:0}
-.shots img{display:block;width:100%;height:auto;border:1px solid #E6DCCB;border-radius:16px}
-.shots figcaption{margin-top:12px;font-size:14px;line-height:1.75;color:#655D53}
-
-/* 料金 */
-.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:28px 0 16px}
-.plan{border:1px solid #E6DCCB;border-radius:10px;padding:24px;background:#fff}
-.plan.main{border-color:#6B4F2A;border-width:2px}
-.plan .price{font-size:30px;font-weight:700;line-height:1.3;margin:2px 0 10px}
-.plan .per{font-size:15px;font-weight:400;color:#655D53}
-.plan ul{margin:0;padding-left:1.15em}
-.plan li{margin:.45em 0;font-size:15px;line-height:1.8}
-.tag{display:inline-block;background:#6B4F2A;color:#fff;font-size:12px;font-weight:700;
-     padding:3px 9px;border-radius:3px;letter-spacing:.04em;margin-bottom:8px}
-
-/* 悩みの札 */
-ul.concerns{list-style:none;padding:0;margin:0;display:grid;
-            grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
-ul.concerns a{display:block;border:1px solid #E6DCCB;border-radius:8px;padding:16px 18px;
-              background:#fff;text-decoration:none;color:inherit}
-ul.concerns a:hover{border-color:#6B4F2A}
-ul.concerns b{display:block;font-size:16px}
-ul.concerns span{display:block;font-size:13px;color:#655D53;margin-top:4px}
-
-/* 著者 */
-.people{list-style:none;padding:0;margin:0;display:grid;
-        grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:26px 20px}
-.people li{text-align:center}
-.people img{width:96px;height:96px;border-radius:50%;object-fit:cover;
-            border:1px solid #E6DCCB;display:block;margin:0 auto 10px;filter:saturate(.85)}
-.people .nm{display:block;font-size:15px;font-weight:700}
-.people .dm{display:block;font-size:12.5px;color:#655D53;margin-top:3px;line-height:1.6}
-.people .no-photo{width:96px;height:96px;border-radius:50%;background:#EFE7DA;color:#8A7A63;
-                  display:flex;align-items:center;justify-content:center;margin:0 auto 10px;
-                  font-family:'Noto Serif JP',serif;font-size:30px;border:1px solid #E6DCCB}
-
-/* 収録作品 */
-ul.authors{margin:0;padding-left:1.2em}
-ul.authors li{margin:.7em 0;line-height:2}
-
-.foot{border-top:1px solid #E6DCCB;padding-block:40px 56px;font-size:14px;color:#655D53}
-.foot a{color:#6B4F2A}
-.foot ul{padding-left:1.2em}
-
-@media(max-width:767px){
-  .container{width:calc(100% - 40px)}
-  .section{padding-block:56px}
-  .hero{font-size:31px;line-height:1.55}
-  .section-title{font-size:24px;margin-bottom:20px}
-  .hero-layout{grid-template-columns:minmax(0,1fr);gap:32px;padding-block:32px 56px}
-  .hero-screen{width:250px}
-  .prose,.lead{font-size:16px;line-height:1.9}
-  .quote-group{padding:22px 18px}
-  blockquote.q{font-size:17px}
-  .shots{display:flex;gap:16px;overflow-x:auto;padding-bottom:14px;
-         scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
-  .shots figure{flex:0 0 200px;scroll-snap-align:start}
-  .plans{grid-template-columns:minmax(0,1fr)}
-  .people{grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:22px 12px}
-  .people img,.people .no-photo{width:76px;height:76px}
-}
-</style>
+<link rel="stylesheet" media="print" onload="this.media='all'"
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&display=swap">
+<noscript><link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&display=swap"></noscript>
+<link rel="stylesheet" href="site.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "名著伴読", "applicationCategory": "BookApplication", "operatingSystem": "iOS", "inLanguage": "ja", "url": "https://meicho.app/", "offers": [{"@type": "Offer", "price": "980", "priceCurrency": "JPY", "name": "月額プラン"}, {"@type": "Offer", "price": "7800", "priceCurrency": "JPY", "name": "年額プラン（7日間無料）"}], "description": "青空文庫と国立国会図書館デジタルコレクションの公開著作を原文のまま読み、分からない箇所を著者本人の文章の逐語引用つきで聞ける読書アプリ。"}</script>
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true"><symbol id="i-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.6h7.2c1.6 0 2.8.9 2.8 2.1v12.7c0-1.1-1.2-2-2.8-2H4z"/><path d="M20 4.6h-2.2c-1.6 0-2.8.9-2.8 2.1v12.7c0-1.1 1.2-2 2.8-2H20z"/><path d="M6.3 8.4h5.4M6.3 11.3h5.4"/><path d="M6 14.2h5.7" stroke-width="2.6" stroke-linecap="round" opacity=".45"/></symbol><symbol id="i-ask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.2c0 1.1-.9 2-2 2H9.6L5 19.6v-3.4H4.6c-1.1 0-2-.9-2-2V5.8c0-1.1.9-2 2-2H18c1.1 0 2 .9 2 2z"/><path d="M9.6 8.2a1.9 1.9 0 1 1 2.7 1.8c-.7.3-1 .9-1 1.6"/><circle cx="11.3" cy="13.6" r=".85" fill="currentColor" stroke="none"/></symbol><symbol id="i-quote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.6" width="18" height="14.8" rx="2.2"/><path d="M8.2 9.4c-1.2 0-2 .8-2 1.9s.8 1.8 1.8 1.8c.2 0 .4 0 .5-.1-.2 1-.9 1.7-1.9 2"/><path d="M14.4 9.4c-1.2 0-2 .8-2 1.9s.8 1.8 1.8 1.8c.2 0 .4 0 .5-.1-.2 1-.9 1.7-1.9 2"/></symbol><symbol id="i-jump" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13.6 3.6H6.4c-1 0-1.9.8-1.9 1.9v13c0 1 .8 1.9 1.9 1.9h9.8c1 0 1.9-.8 1.9-1.9v-7.2"/><path d="M7.8 13.6h5M7.8 16.6h3.4"/><path d="M21 3.4l-6.7 6.7M21 3.4h-4.4M21 3.4v4.4"/></symbol><symbol id="i-verify" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l7.4 2.6v6c0 4.4-3 8.2-7.4 9.8-4.4-1.6-7.4-5.4-7.4-9.8v-6z"/><path d="M8.6 11.8l2.4 2.4 4.6-4.8"/></symbol><symbol id="i-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M9.2 9.2l5.6 5.6M14.8 9.2l-5.6 5.6"/></symbol><symbol id="i-work" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.4V6.2c0-.9.7-1.6 1.6-1.6h7.6"/><path d="M4 19.4h13.2c.9 0 1.6-.7 1.6-1.6v-2.2H6.6"/><path d="M6.6 15.6V6.2c0-.9-.7-1.6-1.6-1.6"/><path d="M20.4 4.2l-6.6 6.6-2.6.7.7-2.6 6.6-6.6z"/></symbol><symbol id="i-science" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.6 3.2v6.1L4.9 17.6c-.7 1.2.2 2.7 1.6 2.7h11c1.4 0 2.3-1.5 1.6-2.7l-4.7-8.3V3.2"/><path d="M8.4 3.2h7.2"/><path d="M7.5 13.8h9"/></symbol><symbol id="i-life" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.4 14.6A8.6 8.6 0 0 1 9.4 3.6a8.6 8.6 0 1 0 11 11z"/><path d="M16.4 3.2l.6 1.7 1.7.6-1.7.6-.6 1.7-.6-1.7-1.7-.6 1.7-.6z" fill="currentColor" stroke="none"/></symbol><symbol id="i-human" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 11.2V6.6c0-1.2 1-2.2 2.2-2.2h6.8c1.2 0 2.2 1 2.2 2.2v4.6"/><path d="M4.4 17V12.8a1.8 1.8 0 0 1 3.6 0V15h8v-2.2a1.8 1.8 0 0 1 3.6 0V17"/><path d="M5.6 17h12.8"/><path d="M6.4 17v2.8M17.6 17v2.8"/></symbol><symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15.4 20.4v-2.6h1.9c.9 0 1.6-.7 1.6-1.6v-2.4h1.3c.4 0 .6-.4.4-.7l-1.7-3A7.6 7.6 0 1 0 8.6 19v1.4z"/><path d="M10.6 8.6a1.9 1.9 0 1 1 2.7 1.8c-.7.3-1 .9-1 1.6"/><circle cx="12.3" cy="14.4" r=".8" fill="currentColor" stroke="none"/></symbol><symbol id="i-beauty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 5.4h12.2v5.2a5 5 0 0 1-5 5H8.6a5 5 0 0 1-5-5z"/><path d="M15.8 6.9h1.9a2.4 2.4 0 0 1 0 4.8h-1.9"/><path d="M3 19.4h14"/></symbol><symbol id="i-food" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3.2v6.6a2 2 0 0 0 4 0V3.2"/><path d="M8.6 9.8v10.6"/><path d="M17.4 3.2c-1.4 1-2.2 2.6-2.2 4.4s.8 3.1 2.2 3.8v9"/></symbol><symbol id="i-vertical" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="3.6" width="17.2" height="16.8" rx="1.8"/><path d="M17.2 6.6v11M13.6 6.6v8.4M10 6.6v11M6.4 6.6v6.2"/></symbol><symbol id="i-widget" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="3.6" width="7.2" height="7.2" rx="1.6"/><rect x="13.4" y="3.6" width="7.2" height="7.2" rx="1.6"/><rect x="3.4" y="13.2" width="17.2" height="7.2" rx="1.6"/></symbol><symbol id="i-note" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.8h9.4l4.6 4.6v11.8H5z"/><path d="M14.4 3.8v4.6H19"/><path d="M8 12.2h8M8 15.4h5.4"/></symbol></svg>
 
 <header class="container"><p class="brand">名著伴読</p></header>
 
@@ -134,16 +30,33 @@ ul.authors li{margin:.7em 0;line-height:2}
 <div class="hero-layout">
   <div>
     <h1 class="hero"><span class="hero-line">名著を、</span><span class="hero-line">分からないまま閉じない。</span></h1>
-    <p class="lead">気になる一節で立ち止まったら、その場で質問。
-    答えについた<b>原文の引用</b>から、前後まで読み確かめられます。</p>
+    <p class="lead">青空文庫を読めるアプリは、無料でいくつもあります。名著伴読が引き受けるのは、その先。<!--
+    -->読んで<b>分からなかった一節を、その場で著者に聞ける</b>ことです。<!--
+    -->答えには必ず<b>著者本人の文章の逐語引用</b>がつき、触れると原文のその箇所へ戻れます。</p>
     <p><a class="cta" href="https://apps.apple.com/jp/app/id6815016992">App Store で無料ではじめる</a></p>
-    <p class="note">無料で、選んだ著者の1作品と質問5問。使い切ったあとも毎日1問は聞けます。</p>
+    <p class="note">無料で、選んだ著者の1作品を最後まで。質問は5問、使い切ったあとも1日1問（通算30問まで）。登録も支払い情報も要りません。iPhone・iPad、日本国内のみ。</p>
   </div>
   <figure class="hero-screen">
-    <img src="img/ask.webp" alt="寺田寅彦に質問して、原文の引用つきの答えが返っている画面" width="480" height="1040">
+    <img src="img/ask.webp" alt="寺田寅彦に質問して、原文の引用つきの答えが返っている画面" width="600" height="1304">
   </figure>
 </div>
 </div>
+
+<section class="section"><div class="container">
+<h2 class="section-title">分からない一節を、4つの動作で片づける。</h2>
+<div class="prose"><p>読書アプリでも、生成AIでも、片方だけなら足ります。<!--
+-->名著伴読はこの4つを<b>ひとつづきの動作</b>にしました。</p></div>
+<ol class="steps">
+  <li><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#i-pause"></use></svg><b>一節で止まる</b><!--
+      --><span>原文のまま読んでいて、意味の取れない箇所に来る。</span></li>
+  <li><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#i-ask"></use></svg><b>その画面のまま聞く</b><!--
+      --><span>本を閉じない。検索窓にも別のアプリにも移らない。</span></li>
+  <li><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#i-quote"></use></svg><b>著者の文章が返る</b><!--
+      --><span>答えの下に、その人が実際に書いた文が逐語で並ぶ。</span></li>
+  <li><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#i-jump"></use></svg><b>原文のその箇所へ</b><!--
+      --><span>引用に触れると本文へ飛ぶ。前後を自分の目で確かめる。</span></li>
+</ol>
+</div></section>
 
 <section class="section"><div class="container">
 <h2 class="section-title">分からない一節から、聞く。</h2>
@@ -157,35 +70,111 @@ ul.authors li{margin:.7em 0;line-height:2}
 <blockquote class="q">では、己が引剥をしようと恨むまいな。己もそうしなければ、饑死をする体なのだ。</blockquote>
 <blockquote class="q">この髪を抜いてな、この髪を抜いてな、鬘にしようと思うたのじゃ。</blockquote>
 </div>
-<p class="note">引用はサーバで原文と照合し、一致しないものは表示しません。引用に触れると原文のその箇所へ移動します。
-回答の文そのものは AI が著作をもとに再構成したもので、<b>本人の発言ではありません</b>。</p>
 <p style="margin-top:22px"><a class="text-link" href="works/000127.html">『羅生門』の原文を、このサイトで5分ぶん読む →</a></p>
 <div class="shots">
-  <figure><img src="img/quotes.webp" alt="回答の下に原文引用が3件並んでいる画面" loading="lazy" width="480" height="1040"><figcaption>答えの下に引用が並ぶ。触れると原文のその箇所へ移動する</figcaption></figure>
-  <figure><img src="img/reader.webp" alt="縦書きで原文を読んでいる画面" loading="lazy" width="480" height="1040"><figcaption>移動した先は縦書きの原文。読み上げと付箋も使える</figcaption></figure>
+  <figure><img src="img/quotes.webp" alt="回答の下に原文引用が3件並んでいる画面" loading="lazy" width="600" height="1304"><figcaption>答えの下に引用が並ぶ。触れると原文のその箇所へ移動する</figcaption></figure>
+  <figure><img src="img/reader.webp" alt="引用から移動した先で、該当箇所が目印つきで表示されている原文の画面" loading="lazy" width="600" height="1304"><figcaption>移動した先は原文。引用された箇所に目印がつく。<a href="tategaki/">縦書き</a>・読み上げ・付箋も使える</figcaption></figure>
 </div>
 </div></section>
 
 <section class="section"><div class="container">
-<h2 class="section-title">まずは無料で、読む・聞くを試す</h2>
+<h2 class="section-title">でっち上げた引用は、そもそも画面に出ません。</h2>
+<div class="prose">
+<p>AI が答える読書アプリを見たときの一番の不安は、<!--
+--><b>もっともらしい嘘を著者の口で言われる</b>ことだと思います。<!--
+-->名著伴読は、答えを二つに分けて出します。</p>
+</div>
+<div class="verify">
+  <div class="no"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#i-cross"></use></svg><div>
+    <b class="lb">AI が書いた文（解釈）</b>
+    <p>著作をもとに現代語で組み直した文です。読みやすさのためにあり、<!--
+    --><b>著者本人の発言ではありません</b>。画面にもそう書いてあります。</p>
+  </div></div>
+  <div class="ok"><svg class="ic" width="30" height="30" aria-hidden="true" focusable="false"><use href="#i-verify"></use></svg><div>
+    <b class="lb">原文からの逐語引用（根拠）</b>
+    <p>サーバで原文と<b>一字一句を照合</b>しています。一致しなかった引用は表示しません。<!--
+    -->だから引用に触れれば、必ず原文のその箇所に着きます。</p>
+  </div></div>
+</div>
+<p class="note" style="margin-top:20px">原文に根拠が見つからない問いには「見つからない」と答えます。<!--
+-->このサイトに載せている引用194件も、配る直前に同じ照合を通しています。</p>
+</div></section>
+
+<section class="section"><div class="container">
+<h2 class="section-title">原文を読むだけなら、無料で足ります。</h2>
+<div class="prose">
+<p>青空文庫は誰でも無料で読めます。名著伴読も同じ公開テキストを使っています。<!--
+--><b>違いは、読んで分からなかったあと</b>です。</p>
+</div>
+<table class="compare">
+<thead><tr><th></th><th>青空文庫ビューア</th><th>生成AIに聞く</th><th class="me">名著伴読</th></tr></thead>
+<tbody>
+<tr><th>原文を読む</th>
+    <td data-h="青空文庫ビューア">読める（無料）</td>
+    <td data-h="生成AIに聞く"><span class="dash">本文は自分で用意する</span></td>
+    <td class="me" data-h="名著伴読"><b>17人・約2,000作品</b>を縦書き・読み上げつきで</td></tr>
+<tr><th>分からないとき</th>
+    <td data-h="青空文庫ビューア"><span class="dash">自分で調べる／閉じる</span></td>
+    <td data-h="生成AIに聞く">聞ける（別の画面で）</td>
+    <td class="me" data-h="名著伴読"><b>読んでいる画面のまま</b>聞ける</td></tr>
+<tr><th>答えの根拠</th>
+    <td data-h="青空文庫ビューア"><span class="dash">—</span></td>
+    <td data-h="生成AIに聞く">要約。出典は自分で確かめる</td>
+    <td class="me" data-h="名著伴読"><b>著者本人の文章を逐語で引用</b></td></tr>
+<tr><th>引用が本物か</th>
+    <td data-h="青空文庫ビューア"><span class="dash">—</span></td>
+    <td data-h="生成AIに聞く"><span class="dash">照合する仕組みは無い</span></td>
+    <td class="me" data-h="名著伴読"><b>原文と一字一句照合。合わなければ出さない</b></td></tr>
+<tr><th>原文へ戻る</th>
+    <td data-h="青空文庫ビューア"><span class="dash">—</span></td>
+    <td data-h="生成AIに聞く"><span class="dash">自分で探す</span></td>
+    <td class="me" data-h="名著伴読"><b>引用に触れるとその箇所へ</b></td></tr>
+<tr><th>費用</th>
+    <td data-h="青空文庫ビューア">無料</td>
+    <td data-h="生成AIに聞く">無料〜</td>
+    <td class="me" data-h="名著伴読">無料枠あり／月 ¥650〜</td></tr>
+</tbody>
+</table>
+<div class="prose" style="margin-top:26px">
+<p>検索や生成AIに聞くこともできます。ただし返ってくるのは要約です。<!--
+-->名著伴読が返すのは、<b>照合済みの原文そのもの</b>と、そこへ戻る道です。</p>
+</div>
+<div class="not-for">
+<b>向いていないかもしれません</b>
+<ul>
+<li>原文をただ読めればよい方（青空文庫ビューアで足ります）</li>
+<li>現代語訳やあらすじが欲しい方（名著伴読は原文と、原文からの引用しか返しません）</li>
+<li>Android をお使いの方、日本国外の方（いまは iPhone・iPad／日本国内のみです）</li>
+</ul>
+</div>
+</div></section>
+
+<section class="section"><div class="container">
+<h2 class="section-title">7日間ためして、合わなければ解約する。</h2>
+<div class="prose">
+<p>年額プランは<b>最初の7日間が無料</b>です。体験中も17人・約2,000作品が読めて、<!--
+-->質問は20問まで使えます。7日以内に解約すれば請求はありません。</p>
+</div>
 <div class="plans">
   <div class="plan">
     <h3>無料</h3>
     <div class="price">¥0</div>
     <ul>
-      <li>選んだ著者の<b>1作品</b>を最後まで読む</li>
-      <li>質問 <b>5問</b>（使い切ったあとも毎日1問）</li>
+      <li>最初に選んだ悩みの著者の作品を<b>1つ、最後まで</b></li>
+      <li>質問 <b>5問</b>。使い切ったあとも<b>1日1問</b>（毎日枠は通算30問まで）</li>
       <li>今日の一節・ホーム画面のウィジェット</li>
+      <li>登録も支払い情報も不要</li>
     </ul>
   </div>
   <div class="plan main">
     <span class="tag">7日間 無料</span>
     <h3>年額プラン</h3>
-    <div class="price">¥7,800<span class="per"> ／年</span></div>
+    <div class="price">¥650<span class="per"> ／月</span></div>
+    <span class="sub">年額 ¥7,800 を一括でお支払い</span>
     <ul>
-      <li>収録している<b>17人・約2,000作品</b></li>
-      <li>質問は<b>毎月100問</b>まで（体験中は20問）</li>
-      <li>月額12か月ぶんより<b>4か月ぶんお得</b></li>
+      <li>収録している<b>17人・約2,000作品</b>が読み放題</li>
+      <li>質問は<b>毎月100問</b>。1日3問のペースで毎日読んでも使い切りません</li>
+      <li>月額で12か月払うより <b>3,960円 安い</b></li>
     </ul>
   </div>
   <div class="plan">
@@ -193,59 +182,66 @@ ul.authors li{margin:.7em 0;line-height:2}
     <div class="price">¥980<span class="per"> ／月</span></div>
     <ul>
       <li>読める範囲と質問数は年額と同じ</li>
-      <li>質問は<b>毎月100問</b>まで</li>
+      <li>質問は<b>毎月100問</b></li>
       <li>まず1か月だけ試す</li>
     </ul>
   </div>
 </div>
-<p class="note">いずれも自動更新です。期間終了の24時間前までに解約すれば次回の請求は発生しません。
-手順は<a href="support.html">サポート</a>に、条件は<a href="terms.html">利用規約</a>にあります。</p>
+<p style="margin-top:26px"><a class="cta" href="https://apps.apple.com/jp/app/id6815016992">App Store で7日間無料ではじめる</a></p>
+<p class="note"><b>解約は、3タップで終わります。</b><!--
+-->「設定」→ 一番上の自分の名前 →「サブスクリプション」→ 名著伴読 →「サブスクリプションをキャンセルする」。<!--
+-->無料期間が終わる<b>24時間前まで</b>に解約すれば、請求は発生しません。<!--
+-->解約しても、期間の終わりまではそのまま読めます。アプリを削除しただけでは解約になりません。<!--
+-->条件は<a href="terms.html">利用規約</a>に、手順は<a href="support.html">サポート</a>にあります。</p>
 </div></section>
 
 <section class="section"><div class="container">
-<h2 class="section-title">読みたい本が決まっていなくても</h2>
-<div class="prose"><p>いま気になっていることから、その主題を書いた著者に入れます。</p></div>
+<h2 class="section-title">いま困っていることから、読む本を決める。</h2>
+<div class="prose"><p>名著を「教養として」読む必要はありません。いま気になっていることを選ぶと、<!--
+-->その主題を正面から書いた著者に入れます。<b>どれも、はじめの5分ぶんはこのサイトで読めます。</b></p></div>
 <ul class="concerns" style="margin-top:24px">
-<li><a href="works/047061.html"><b>人に信用されたい</b><span>仕事｜福沢諭吉</span></a></li>
-<li><a href="works/002359.html"><b>ものの見方を変えたい</b><span>科学｜寺田寅彦</span></a></li>
-<li><a href="works/046322.html"><b>何のために働くのか</b><span>生き方｜宮沢賢治</span></a></li>
-<li><a href="works/000301.html"><b>自分が嫌になる</b><span>人間｜太宰治</span></a></li>
-<li><a href="works/000127.html"><b>不安が消えない</b><span>こころ｜芥川龍之介</span></a></li>
-<li><a href="works/051821.html"><b>良いものを選びたい</b><span>美と暮らし｜柳宗悦</span></a></li>
-<li><a href="works/054987.html"><b>食を大事にしたい</b><span>食と美｜北大路魯山人</span></a></li>
+<li><a href="works/047061.html"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-work"></use></svg><span class="tx"><b>人に信用されたい</b><span>仕事｜福沢諭吉</span></span></a></li>
+<li><a href="works/002359.html"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-science"></use></svg><span class="tx"><b>ものの見方を変えたい</b><span>科学｜寺田寅彦</span></span></a></li>
+<li><a href="works/046322.html"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-life"></use></svg><span class="tx"><b>何のために働くのか</b><span>生き方｜宮沢賢治</span></span></a></li>
+<li><a href="works/000301.html"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-human"></use></svg><span class="tx"><b>自分が嫌になる</b><span>人間｜太宰治</span></span></a></li>
+<li><a href="works/000127.html"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-heart"></use></svg><span class="tx"><b>不安が消えない</b><span>こころ｜芥川龍之介</span></span></a></li>
+<li><a href="works/051821.html"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-beauty"></use></svg><span class="tx"><b>良いものを選びたい</b><span>美と暮らし｜柳宗悦</span></span></a></li>
+<li><a href="works/054987.html"><svg class="ic" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-food"></use></svg><span class="tx"><b>食を大事にしたい</b><span>食と美｜北大路魯山人</span></span></a></li>
 </ul>
 </div></section>
 
 <section class="section"><div class="container">
 <h2 class="section-title">読んだことを、自分の言葉にする</h2>
 <div class="prose">
-<p>気になった一節には付箋を挟めます。読み終えたら理解確認で読み取れたかを確かめ、
-考えたことを出典つきのノートに残せます。長い作品は節ごとに区切ってあり、
+<p>気になった一節には付箋を挟めます。読み終えたら理解確認で読み取れたかを確かめ、<!--
+-->考えたことを出典つきのノートに残せます。長い作品は節ごとに区切ってあり、
 1日1節なら何日で読み切れるかが分かります。</p>
+<p>ホーム画面のウィジェットには、毎日ひとつ原文の一節が出ます。<!--
+--><b>読書がやめてしまうのは、開く理由が無くなったとき</b>です。</p>
 </div>
 <div class="shots">
-  <figure><img src="img/pick.webp" alt="いま、どれが近いですか という選択画面" loading="lazy" width="480" height="1040"><figcaption>はじめに、いま近いものを1つ選ぶ</figcaption></figure>
-  <figure><img src="img/home.webp" alt="今日の一節と読みかけの作品が並ぶホーム画面" loading="lazy" width="480" height="1040"><figcaption>今日の一節と、読みかけの続きがホームに出る</figcaption></figure>
+  <figure><img src="img/pick.webp" alt="いま、どれが近いですか という選択画面" loading="lazy" width="600" height="1304"><figcaption>はじめに、いま近いものを1つ選ぶ</figcaption></figure>
+  <figure><img src="img/home.webp" alt="今日の一節と読みかけの作品が並ぶホーム画面" loading="lazy" width="600" height="1304"><figcaption>今日の一節と、読みかけの続きがホームに出る</figcaption></figure>
 </div>
 </div></section>
 
 <section class="section"><div class="container">
 <h2 class="section-title">収録している著者</h2>
 <ul class="people">
-<li><a href="works/000127.html" style="text-decoration:none;color:inherit"><img src="img/p/akutagawa_ryunosuke.webp" alt="芥川龍之介の肖像" loading="lazy" width="96" height="96"><span class="nm">芥川龍之介</span><span class="dm">人間心理と懐疑を切れ味よく描いた小説家</span></a></li>
-<li><a href="works/000301.html" style="text-decoration:none;color:inherit"><img src="img/p/dazai_osamu.webp" alt="太宰治の肖像" loading="lazy" width="96" height="96"><span class="nm">太宰治</span><span class="dm">弱さと自意識を告白体で描いた小説家</span></a></li>
-<li><a href="works/000773.html" style="text-decoration:none;color:inherit"><img src="img/p/natsume_soseki.webp" alt="夏目漱石の肖像" loading="lazy" width="96" height="96"><span class="nm">夏目漱石</span><span class="dm">個人主義と人間関係の機微を描いた小説家</span></a></li>
-<li><a href="works/047061.html" style="text-decoration:none;color:inherit"><img src="img/p/fukuzawa_yukichi.webp" alt="福沢諭吉の肖像" loading="lazy" width="96" height="96"><span class="nm">福沢諭吉</span><span class="dm">学問と独立自尊を歯切れよく説いた啓蒙思想家</span></a></li>
-<li><a href="works/046322.html" style="text-decoration:none;color:inherit"><img src="img/p/miyazawa_kenji.webp" alt="宮沢賢治の肖像" loading="lazy" width="96" height="96"><span class="nm">宮沢賢治</span><span class="dm">ほんとうの幸いを求めた詩人・童話作家</span></a></li>
-<li><a href="works/045245.html" style="text-decoration:none;color:inherit"><img src="img/p/mori_ogai.webp" alt="森鴎外の肖像" loading="lazy" width="96" height="96"><span class="nm">森鴎外</span><span class="dm">冷静で簡潔な文体の小説家・軍医</span></a></li>
-<li><a href="works/002359.html" style="text-decoration:none;color:inherit"><img src="img/p/terada_torahiko.webp" alt="寺田寅彦の肖像" loading="lazy" width="96" height="96"><span class="nm">寺田寅彦</span><span class="dm">科学の目で日常と災害を見つめた物理学者・随筆家</span></a></li>
-<li><a href="works/043675.html" style="text-decoration:none;color:inherit"><img src="img/p/nitobe_inazo.webp" alt="新渡戸稲造の肖像" loading="lazy" width="96" height="96"><span class="nm">新渡戸稲造</span><span class="dm">修養と人格を穏やかに説いた教育者</span></a></li>
-<li><a href="works/046821.html" style="text-decoration:none;color:inherit"><img src="img/p/makino_tomitaro.webp" alt="牧野富太郎の肖像" loading="lazy" width="96" height="96"><span class="nm">牧野富太郎</span><span class="dm">植物を生涯愛し続けた植物学者</span></a></li>
-<li><a href="works/052454.html" style="text-decoration:none;color:inherit"><img src="img/p/yanagita_kunio.webp" alt="柳田國男の肖像" loading="lazy" width="96" height="96"><span class="nm">柳田國男</span><span class="dm">日本の暮らしと伝承を見つめた民俗学者</span></a></li>
-<li><a href="works/000526.html" style="text-decoration:none;color:inherit"><img src="img/p/minakata_kumagusu.webp" alt="南方熊楠の肖像" loading="lazy" width="96" height="96"><span class="nm">南方熊楠</span><span class="dm">博覧強記の博物学者・粘菌研究者</span></a></li>
-<li><a href="works/000946.html" style="text-decoration:none;color:inherit"><img src="img/p/nishida_kitaro.webp" alt="西田幾多郎の肖像" loading="lazy" width="96" height="96"><span class="nm">西田幾多郎</span><span class="dm">純粋経験から独自の哲学を築いた哲学者</span></a></li>
-<li><a href="works/000519.html" style="text-decoration:none;color:inherit"><img src="img/p/uchimura_kanzo.webp" alt="内村鑑三の肖像" loading="lazy" width="96" height="96"><span class="nm">内村鑑三</span><span class="dm">信念と生き方を熱く説いたキリスト教思想家</span></a></li>
-<li><a href="works/ndl1195171.html" style="text-decoration:none;color:inherit"><img src="img/p/shibusawa_eiichi.webp" alt="渋沢栄一の肖像" loading="lazy" width="96" height="96"><span class="nm">渋沢栄一</span><span class="dm">道徳と経済の両立を説いた実業家</span></a></li>
+<li><a href="works/000127.html" style="text-decoration:none;color:inherit"><img src="img/p/akutagawa_ryunosuke.webp" alt="" loading="lazy" width="96" height="96"><span class="nm">芥川龍之介</span><span class="dm">人間心理と懐疑を切れ味よく描いた小説家</span></a></li>
+<li><a href="works/000301.html" style="text-decoration:none;color:inherit"><img src="img/p/dazai_osamu.webp" alt="" loading="lazy" width="96" height="96"><span class="nm">太宰治</span><span class="dm">弱さと自意識を告白体で描いた小説家</span></a></li>
+<li><a href="works/000773.html" style="text-decoration:none;color:inherit"><img src="img/p/natsume_soseki.webp" alt="" loading="lazy" width="96" height="96"><span class="nm">夏目漱石</span><span class="dm">個人主義と人間関係の機微を描いた小説家</span></a></li>
+<li><a href="works/047061.html" style="text-decoration:none;color:inherit"><img src="img/p/fukuzawa_yukichi.webp" alt="" loading="lazy" width="96" height="96"><span class="nm">福沢諭吉</span><span class="dm">学問と独立自尊を歯切れよく説いた啓蒙思想家</span></a></li>
+<li><a href="works/046322.html" style="text-decoration:none;color:inherit"><img src="img/p/miyazawa_kenji.webp" alt="" loading="lazy" width="96" height="96"><span class="nm">宮沢賢治</span><span class="dm">ほんとうの幸いを求めた詩人・童話作家</span></a></li>
+<li><a href="works/045245.html" style="text-decoration:none;color:inherit"><img src="img/p/mori_ogai.webp" alt="" loading="lazy" width="96" height="96"><span class="nm">森鴎外</span><span class="dm">冷静で簡潔な文体の小説家・軍医</span></a></li>
+<li><a href="works/002359.html" style="text-decoration:none;color:inherit"><img src="img/p/terada_torahiko.webp" alt="" loading="lazy" width="96" height="96"><span class="nm">寺田寅彦</span><span class="dm">科学の目で日常と災害を見つめた物理学者・随筆家</span></a></li>
+<li><a href="works/043675.html" style="text-decoration:none;color:inherit"><img src="img/p/nitobe_inazo.webp" alt="" loading="lazy" width="96" height="96"><span class="nm">新渡戸稲造</span><span class="dm">修養と人格を穏やかに説いた教育者</span></a></li>
+<li><a href="works/046821.html" style="text-decoration:none;color:inherit"><img src="img/p/makino_tomitaro.webp" alt="" loading="lazy" width="96" height="96"><span class="nm">牧野富太郎</span><span class="dm">植物を生涯愛し続けた植物学者</span></a></li>
+<li><a href="works/052454.html" style="text-decoration:none;color:inherit"><img src="img/p/yanagita_kunio.webp" alt="" loading="lazy" width="96" height="96"><span class="nm">柳田國男</span><span class="dm">日本の暮らしと伝承を見つめた民俗学者</span></a></li>
+<li><a href="works/000526.html" style="text-decoration:none;color:inherit"><img src="img/p/minakata_kumagusu.webp" alt="" loading="lazy" width="96" height="96"><span class="nm">南方熊楠</span><span class="dm">博覧強記の博物学者・粘菌研究者</span></a></li>
+<li><a href="works/000946.html" style="text-decoration:none;color:inherit"><img src="img/p/nishida_kitaro.webp" alt="" loading="lazy" width="96" height="96"><span class="nm">西田幾多郎</span><span class="dm">純粋経験から独自の哲学を築いた哲学者</span></a></li>
+<li><a href="works/000519.html" style="text-decoration:none;color:inherit"><img src="img/p/uchimura_kanzo.webp" alt="" loading="lazy" width="96" height="96"><span class="nm">内村鑑三</span><span class="dm">信念と生き方を熱く説いたキリスト教思想家</span></a></li>
+<li><a href="works/ndl1195171.html" style="text-decoration:none;color:inherit"><img src="img/p/shibusawa_eiichi.webp" alt="" loading="lazy" width="96" height="96"><span class="nm">渋沢栄一</span><span class="dm">道徳と経済の両立を説いた実業家</span></a></li>
 <li><a href="works/052468.html" style="text-decoration:none;color:inherit"><div class="no-photo" aria-hidden="true">中</div><span class="nm">中谷宇吉郎</span><span class="dm">雪の結晶を研究した物理学者の平明な随筆</span></a></li>
 <li><a href="works/051821.html" style="text-decoration:none;color:inherit"><div class="no-photo" aria-hidden="true">柳</div><span class="nm">柳宗悦</span><span class="dm">無名の職人の器に美を見いだした民藝の創始者</span></a></li>
 <li><a href="works/054987.html" style="text-decoration:none;color:inherit"><div class="no-photo" aria-hidden="true">北</div><span class="nm">北大路魯山人</span><span class="dm">食と器と美意識を率直に語った料理家・陶芸家</span></a></li>
@@ -256,27 +252,65 @@ ul.authors li{margin:.7em 0;line-height:2}
 <h2 class="section-title">収録作品</h2>
 <div class="prose"><p>下の72作品は、<b>はじめの5分ぶんを原文のまま</b>このサイトで読めます。続きはアプリです。</p></div>
 <ul class="authors" style="margin-top:22px">
-<li><b>芥川龍之介</b>　<a href="works/000127.html">『羅生門』</a>・<a href="works/000092.html">『蜘蛛の糸』</a>・<a href="works/000042.html">『鼻』</a>・<a href="works/000158.html">『侏儒の言葉』</a>・<a href="works/000069.html">『河童』</a></li>
-<li><b>太宰治</b>　<a href="works/000301.html">『人間失格』</a>・<a href="works/001567.html">『走れメロス』</a>・<a href="works/001565.html">『斜陽』</a>・<a href="works/002253.html">『ヴィヨンの妻』</a>・<a href="works/000270.html">『富嶽百景』</a></li>
-<li><b>夏目漱石</b>　<a href="works/000773.html">『こころ』</a>・<a href="works/000789.html">『吾輩は猫である』</a>・<a href="works/000752.html">『坊っちゃん』</a>・<a href="works/000776.html">『草枕』</a>・<a href="works/000772.html">『私の個人主義』</a></li>
-<li><b>福沢諭吉</b>　<a href="works/047061.html">『学問のすすめ』</a>・<a href="works/001864.html">『福翁自伝』</a>・<a href="works/047063.html">『修身要領』</a></li>
-<li><b>宮沢賢治</b>　<a href="works/046322.html">『銀河鉄道の夜』</a>・<a href="works/043754.html">『注文の多い料理店』</a>・<a href="works/000470.html">『セロ弾きのゴーシュ』</a>・<a href="works/000473.html">『よだかの星』</a>・<a href="works/045630.html">『〔雨ニモマケズ〕』</a></li>
-<li><b>森鴎外</b>　<a href="works/045245.html">『高瀬舟』</a>・<a href="works/058126.html">『舞姫』</a>・<a href="works/000689.html">『山椒大夫』</a>・<a href="works/000673.html">『阿部一族』</a>・<a href="works/045224.html">『雁』</a></li>
-<li><b>寺田寅彦</b>　<a href="works/002359.html">『科学者とあたま』</a>・<a href="works/002509.html">『天災と国防』</a>・<a href="works/002363.html">『茶わんの湯』</a>・<a href="works/001684.html">『柿の種』</a>・<a href="works/004668.html">『津浪と人間』</a></li>
-<li><b>新渡戸稲造</b>　<a href="works/043675.html">『自警録』</a>・<a href="works/050727.html">『人格の養成』</a>・<a href="works/050896.html">『自由の真髄』</a>・<a href="works/051148.html">『「死」の問題に対して』</a></li>
-<li><b>中谷宇吉郎</b>　<a href="works/052468.html">『雪』</a>・<a href="works/053210.html">『雪を作る話』</a>・<a href="works/053230.html">『簪を挿した蛇』</a>・<a href="works/057309.html">『天地創造の話』</a></li>
-<li><b>牧野富太郎</b>　<a href="works/046821.html">『植物知識』</a>・<a href="works/055789.html">『牧野富太郎自叙伝』</a>・<a href="works/046820.html">『植物一日一題』</a>・<a href="works/047236.html">『若き日の思い出』</a></li>
-<li><b>柳田國男</b>　<a href="works/052454.html">『遠野物語』</a>・<a href="works/054331.html">『海上の道』</a>・<a href="works/053104.html">『木綿以前の事』</a>・<a href="works/052505.html">『山の人生』</a></li>
-<li><b>柳宗悦</b>　<a href="works/051821.html">『民芸とは何か』</a>・<a href="works/051820.html">『手仕事の日本』</a>・<a href="works/054957.html">『工芸の道』</a>・<a href="works/054958.html">『民芸四十年』</a></li>
-<li><b>南方熊楠</b>　<a href="works/000526.html">『十二支考』</a>・<a href="works/000525.html">『神社合祀に関する意見』</a>・<a href="works/043634.html">『人柱の話』</a>・<a href="works/052937.html">『蓮の花開く音を聴く事』</a></li>
-<li><b>西田幾多郎</b>　<a href="works/000946.html">『善の研究』</a>・<a href="works/001755.html">『絶対矛盾的自己同一』</a>・<a href="works/003505.html">『読書』</a>・<a href="works/003506.html">『我が子の死』</a></li>
-<li><b>内村鑑三</b>　<a href="works/000519.html">『後世への最大遺物』</a>・<a href="works/000233.html">『デンマルク国の話』</a>・<a href="works/001214.html">『楽しき生涯』</a></li>
-<li><b>北大路魯山人</b>　<a href="works/054987.html">『料理する心』</a>・<a href="works/050005.html">『味覚馬鹿』</a>・<a href="works/049953.html">『鮎の食い方』</a>・<a href="works/055105.html">『愛陶語録』</a>・<a href="works/049990.html">『日本料理の基礎観念』</a></li>
-<li><b>渋沢栄一</b>　<a href="works/ndl1195171.html">『論語と算盤』</a>・<a href="works/ndl956127.html">『実業家処世訓』</a>・<a href="works/ndl965061.html">『処世の道 : 脩養訓話』</a></li>
+<li><b><a href="a/akutagawa_ryunosuke.html">芥川龍之介</a></b><span class="titles"><a href="works/000127.html">『羅生門』</a><a href="works/000092.html">『蜘蛛の糸』</a><a href="works/000042.html">『鼻』</a><a href="works/000158.html">『侏儒の言葉』</a><a href="works/000069.html">『河童』</a></span></li>
+<li><b><a href="a/dazai_osamu.html">太宰治</a></b><span class="titles"><a href="works/000301.html">『人間失格』</a><a href="works/001567.html">『走れメロス』</a><a href="works/001565.html">『斜陽』</a><a href="works/002253.html">『ヴィヨンの妻』</a><a href="works/000270.html">『富嶽百景』</a></span></li>
+<li><b><a href="a/natsume_soseki.html">夏目漱石</a></b><span class="titles"><a href="works/000773.html">『こころ』</a><a href="works/000789.html">『吾輩は猫である』</a><a href="works/000752.html">『坊っちゃん』</a><a href="works/000776.html">『草枕』</a><a href="works/000772.html">『私の個人主義』</a></span></li>
+<li><b><a href="a/fukuzawa_yukichi.html">福沢諭吉</a></b><span class="titles"><a href="works/047061.html">『学問のすすめ』</a><a href="works/001864.html">『福翁自伝』</a><a href="works/047063.html">『修身要領』</a></span></li>
+<li><b><a href="a/miyazawa_kenji.html">宮沢賢治</a></b><span class="titles"><a href="works/046322.html">『銀河鉄道の夜』</a><a href="works/043754.html">『注文の多い料理店』</a><a href="works/000470.html">『セロ弾きのゴーシュ』</a><a href="works/000473.html">『よだかの星』</a><a href="works/045630.html">『〔雨ニモマケズ〕』</a></span></li>
+<li><b><a href="a/mori_ogai.html">森鴎外</a></b><span class="titles"><a href="works/045245.html">『高瀬舟』</a><a href="works/058126.html">『舞姫』</a><a href="works/000689.html">『山椒大夫』</a><a href="works/000673.html">『阿部一族』</a><a href="works/045224.html">『雁』</a></span></li>
+<li><b><a href="a/terada_torahiko.html">寺田寅彦</a></b><span class="titles"><a href="works/002359.html">『科学者とあたま』</a><a href="works/002509.html">『天災と国防』</a><a href="works/002363.html">『茶わんの湯』</a><a href="works/001684.html">『柿の種』</a><a href="works/004668.html">『津浪と人間』</a></span></li>
+<li><b><a href="a/nitobe_inazo.html">新渡戸稲造</a></b><span class="titles"><a href="works/043675.html">『自警録』</a><a href="works/050727.html">『人格の養成』</a><a href="works/050896.html">『自由の真髄』</a><a href="works/051148.html">『「死」の問題に対して』</a></span></li>
+<li><b><a href="a/nakaya_ukichiro.html">中谷宇吉郎</a></b><span class="titles"><a href="works/052468.html">『雪』</a><a href="works/053210.html">『雪を作る話』</a><a href="works/053230.html">『簪を挿した蛇』</a><a href="works/057309.html">『天地創造の話』</a></span></li>
+<li><b><a href="a/makino_tomitaro.html">牧野富太郎</a></b><span class="titles"><a href="works/046821.html">『植物知識』</a><a href="works/055789.html">『牧野富太郎自叙伝』</a><a href="works/046820.html">『植物一日一題』</a><a href="works/047236.html">『若き日の思い出』</a></span></li>
+<li><b><a href="a/yanagita_kunio.html">柳田國男</a></b><span class="titles"><a href="works/052454.html">『遠野物語』</a><a href="works/054331.html">『海上の道』</a><a href="works/053104.html">『木綿以前の事』</a><a href="works/052505.html">『山の人生』</a></span></li>
+<li><b><a href="a/yanagi_muneyoshi.html">柳宗悦</a></b><span class="titles"><a href="works/051821.html">『民芸とは何か』</a><a href="works/051820.html">『手仕事の日本』</a><a href="works/054957.html">『工芸の道』</a><a href="works/054958.html">『民芸四十年』</a></span></li>
+<li><b><a href="a/minakata_kumagusu.html">南方熊楠</a></b><span class="titles"><a href="works/000526.html">『十二支考』</a><a href="works/000525.html">『神社合祀に関する意見』</a><a href="works/043634.html">『人柱の話』</a><a href="works/052937.html">『蓮の花開く音を聴く事』</a></span></li>
+<li><b><a href="a/nishida_kitaro.html">西田幾多郎</a></b><span class="titles"><a href="works/000946.html">『善の研究』</a><a href="works/001755.html">『絶対矛盾的自己同一』</a><a href="works/003505.html">『読書』</a><a href="works/003506.html">『我が子の死』</a></span></li>
+<li><b><a href="a/uchimura_kanzo.html">内村鑑三</a></b><span class="titles"><a href="works/000519.html">『後世への最大遺物』</a><a href="works/000233.html">『デンマルク国の話』</a><a href="works/001214.html">『楽しき生涯』</a></span></li>
+<li><b><a href="a/kitaoji_rosanjin.html">北大路魯山人</a></b><span class="titles"><a href="works/054987.html">『料理する心』</a><a href="works/050005.html">『味覚馬鹿』</a><a href="works/049953.html">『鮎の食い方』</a><a href="works/055105.html">『愛陶語録』</a><a href="works/049990.html">『日本料理の基礎観念』</a></span></li>
+<li><b><a href="a/shibusawa_eiichi.html">渋沢栄一</a></b><span class="titles"><a href="works/ndl1195171.html">『論語と算盤』</a><a href="works/ndl956127.html">『実業家処世訓』</a><a href="works/ndl965061.html">『処世の道 : 脩養訓話』</a></span></li>
 </ul>
 <p style="margin-top:18px"><a class="text-link" href="works/">収録作品の一覧（文字数と読了の目安つき）→</a></p>
-<p style="margin-top:34px"><a class="cta" href="https://apps.apple.com/jp/app/id6815016992">App Store で無料ではじめる</a></p>
 </div></section>
+
+<section class="section"><div class="container">
+<h2 class="section-title">買う前に、よく聞かれること</h2>
+<div class="faq">
+<details><summary>無料で青空文庫が読めるのに、なぜ有料なのですか</summary>
+<div class="a">原文を読むだけなら無料で足ります。有料で手に入るのは、読んでつまずいたときに<!--
+--><b>その場で聞けること</b>、返ってきた答えの根拠が<b>照合済みの原文の引用</b>であること、<!--
+-->そして17人・約2,000作品を著者をまたいで行き来できることです。</div></details>
+
+<details><summary>AI がもっともらしい嘘を書きませんか</summary>
+<div class="a">引用はサーバで原文と一字一句を照合し、<b>一致しないものは表示しません</b>。<!--
+-->原文に根拠がない問いには「見つからない」と答えます。<!--
+-->ただし回答の文そのものは AI が著作をもとに再構成したもので、<b>著者本人の発言ではありません</b>。<!--
+-->おかしな答えは回答画面の「報告」から送れます。本文の出どころは<a href="sources.html">収録作品の出典</a>にあります。</div></details>
+
+<details><summary>7日間ためして、合わなかったら</summary>
+<div class="a">7日目の24時間前までに「設定」→「サブスクリプション」から解約すれば、請求は発生しません。<!--
+-->解約後も、無料でできること（選んだ著者の1作品と、1日1問）はそのまま残ります。</div></details>
+
+<details><summary>無料で読めるのは、どの作品ですか</summary>
+<div class="a">最初に選んだ悩みに応じて決まります（「人に信用されたい」→『修身要領』、「ものの見方を変えたい」→『科学者とあたま』、「何のために働くのか」→『注文の多い料理店』、「自分が嫌になる」→『走れメロス』、「不安が消えない」→『羅生門』、「良いものを選びたい」→『雑器の美』、「食を大事にしたい」→『味覚馬鹿』）。<!--
+-->それ以外の作品は、はじめの5分ぶんを<a href="works/">このサイト</a>で読めます。<!--
+-->買う前に、自分に合うかを確かめてください。</div></details>
+
+<details><summary>Android はありますか</summary>
+<div class="a">いまは <b>iPhone・iPad のみ</b>、<b>日本国内のみ</b>の提供です<!--
+-->（一部の著者の作品が日本国外では著作権の保護期間中のため）。</div></details>
+</div>
+</div></section>
+
+<section class="section"><div class="container">
+<h2 class="section-title">分からないまま閉じた本が、あると思います。</h2>
+<div class="prose"><p>その一節から、もう一度。</p></div>
+<p style="margin-top:26px"><a class="cta" href="https://apps.apple.com/jp/app/id6815016992">App Store で無料ではじめる</a></p>
+<p class="note">無料で、選んだ著者の1作品を最後まで。質問は5問、使い切ったあとも1日1問（通算30問まで）。<br>全17人・約2,000作品と毎月100問は月額980円／年額7,800円（年額は7日間無料）。iPhone・iPad、日本国内のみ。</p>
+</div></section>
+
+<div class="sticky"><span>解約は3タップ</span><!--
+--><a class="cta" href="https://apps.apple.com/jp/app/id6815016992">7日間無料ではじめる</a></div>
 
 <footer class="foot"><div class="container">
 <ul>
@@ -286,7 +320,7 @@ ul.authors li{margin:.7em 0;line-height:2}
 <li><a href="sources.html">収録作品の出典と加工について</a></li>
 </ul>
 <p>開発者：KawaApp Studio　お問い合わせ：<a href="mailto:asonedaywillberefreshing@gmail.com">asonedaywillberefreshing@gmail.com</a></p>
-<p>本アプリは青空文庫、国立国会図書館および各著者の関係団体とは無関係の非公式アプリです。
-肖像はいずれも著作権の保護期間が満了した写真です。</p>
+<p>本アプリは青空文庫、国立国会図書館および各著者の関係団体とは無関係の非公式アプリです。<!--
+-->肖像はいずれも著作権の保護期間が満了した写真です。</p>
 </div></footer>
 </body></html>
