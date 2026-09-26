@@ -131,6 +131,9 @@ h3{font-size:18px;font-weight:700;margin:0 0 6px;letter-spacing:.02em}
 blockquote.q{font-family:'Hiragino Mincho ProN','Hiragino Mincho Pro','Yu Mincho','YuMincho','Noto Serif JP','Noto Serif CJK JP',serif;margin:0;padding:0;border:0;background:none;
              font-size:18px;line-height:2;white-space:pre-line}
 blockquote.q + blockquote.q{margin-top:24px;padding-top:24px;border-top:1px solid var(--rule)}
+/* 引用の出どころ。書かないと別作品の文がこの作品の根拠に見える */
+blockquote.q cite{display:block;margin-top:8px;font-style:normal;font-family:var(--sans);
+                  font-size:13px;color:var(--ink-3);letter-spacing:.02em}
 
 /* 画面の写し。上 40px の OS バーと下 30px を切って中身だけ見せる */
 .shots{display:grid;grid-template-columns:repeat(2,minmax(0,300px));gap:40px;margin:36px 0 0}
