@@ -128,3 +128,13 @@ ul.also a,nav.crumbs a,.meta a,.brand a,.page h2 > a{
   .orig{break-inside:auto} table.units{break-inside:auto} tr{break-inside:avoid}
   thead{display:table-header-group}
 }
+
+/* 下端の追従。本文中の CTA を増やさずに、いつでも押せるようにする */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;display:none;
+        background:color-mix(in srgb,var(--paper) 96%,transparent);backdrop-filter:blur(8px);
+        border-top:1px solid var(--rule);
+        padding:10px 16px calc(10px + env(safe-area-inset-bottom));align-items:center;gap:12px}
+.sticky .cta{padding:13px 20px;font-size:15px;flex:1;text-align:center;margin:0}
+.sticky span{font-size:12px;line-height:1.5;color:var(--ink-3);flex:none;max-width:7em}
+@media(max-width:767px){.sticky{display:flex} body{padding-bottom:76px}}
+@media print{.sticky{display:none}}

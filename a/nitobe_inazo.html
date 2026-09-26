@@ -22,7 +22,10 @@
 .who img,.who .no-photo{width:120px;height:120px;border-radius:50%;object-fit:cover;border:1px solid var(--rule);display:block}
 .who .no-photo{background:var(--sunken);color:var(--ink-3);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif JP',serif;font-size:40px}
 .themes{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:14px 0 0}
-.themes li{border:1px solid var(--rule);border-radius:999px;padding:5px 13px;font-size:13px;background:var(--raised)}
+.themes li{border:1px solid var(--rule);border-radius:999px;font-size:13px;background:var(--raised)}
+.themes li a,.themes li{display:block;padding:5px 13px;color:inherit;text-decoration:none}
+.themes li:has(a):hover{border-color:var(--accent)}
+.themes li a:hover{text-decoration:underline;text-underline-offset:.28em}
 ul.booklist{list-style:none;padding:0;margin:0}
 ul.booklist li{padding:14px 0;border-bottom:1px solid var(--rule)}
 ul.booklist a{color:var(--ink);text-decoration:none}
@@ -50,7 +53,7 @@ ul.qa-list .dm{font-size:13px;color:var(--ink-3);margin-left:8px}
   <div>
     <h1 class="hero" style="font-size:34px">新渡戸稲造</h1>
     <p class="note" style="margin:6px 0 0;font-size:15px">1862–1933　修養と人格を穏やかに説いた教育者</p>
-    <ul class="themes"><li>修養</li><li>人格</li><li>教育</li><li>生き方</li></ul>
+    <ul class="themes"><li>修養</li><li>人格</li><li>教育</li><li><a href="../themes/ikikata.html">生き方</a></li></ul>
   </div>
 </div>
 <div class="prose" style="margin-top:26px"><p>教育者・農政学者。修養と人格、国際人としての生き方を穏やかに説く。</p></div>
