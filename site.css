@@ -108,8 +108,8 @@ h3{font-size:18px;font-weight:700;margin:0 0 6px;letter-spacing:.02em}
 .hero-screen{margin:0;justify-self:center;width:280px;border-radius:20px;overflow:hidden;
              border:1px solid var(--rule);box-shadow:0 20px 48px rgb(31 27 23 / 12%);
              /* mask の黒は色でなく不透明度。token にしない */
-             -webkit-mask-image:linear-gradient(#000 78%,rgb(0 0 0 / 0) 100%);
-             mask-image:linear-gradient(#000 78%,rgb(0 0 0 / 0) 100%)}
+             -webkit-mask-image:linear-gradient(#000 86%,rgb(0 0 0 / 0) 100%);
+             mask-image:linear-gradient(#000 86%,rgb(0 0 0 / 0) 100%)}
 .hero-screen img{display:block;width:100%;height:auto}
 
 /* 操作 */
@@ -365,3 +365,31 @@ ul.concerns .tx{min-width:0}
   .qa{padding-left:13px}
   .qa .q-title{font-size:16.5px}
 }
+
+/* 主ボタンと副ボタン。副は枠だけ（主を食わない） */
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:0}
+.cta.ghost{background:none;color:var(--accent);border:1px solid var(--rule-strong)}
+.cta.ghost:hover{background:var(--sunken);color:var(--accent);border-color:var(--accent)}
+
+/* 3枚で仕組みを見せる。文より画面のほうが速い */
+.steps3{list-style:none;padding:0;margin:36px 0 0;display:grid;
+        grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.steps3 figure{margin:0 0 16px}
+.steps3 img{display:block;width:100%;height:auto;border:1px solid var(--rule);
+            border-radius:14px;box-shadow:var(--shadow-2)}
+.steps3 b{display:block;font-size:16px;line-height:1.7;margin-bottom:6px}
+.steps3 span{display:block;font-size:14px;line-height:1.9;color:var(--ink-3)}
+@media(max-width:767px){
+  .steps3{grid-template-columns:minmax(0,1fr);gap:34px}
+  .steps3 figure{width:min(260px,100%);margin-inline:auto}
+  .cta-row .cta{width:100%;text-align:center}
+}
+
+/* まず読む6作。名簿でなく、選べる形にする */
+ul.picks{list-style:none;padding:0;margin:0;display:grid;
+         grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+ul.picks a{display:block;border:1px solid var(--rule);border-radius:8px;padding:16px 18px;
+           background:var(--raised);text-decoration:none;color:inherit;height:100%}
+ul.picks a:hover{border-color:var(--accent);background:var(--sunken)}
+ul.picks b{display:block;font-family:var(--serif);font-size:17px;font-weight:600}
+ul.picks span{display:block;font-size:13px;color:var(--ink-3);margin-top:5px;line-height:1.7}
