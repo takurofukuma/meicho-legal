@@ -159,3 +159,16 @@ dl.gloss dd{margin:0;color:var(--ink-2)}
   dl.gloss{grid-template-columns:minmax(0,1fr);gap:2px 0}
   dl.gloss dd{margin:0 0 10px}
 }
+
+/* このページで答えていること（検索の問いに、原文より先に答える） */
+.answers-first{margin:14px 0 6px;padding:14px 16px;border:1px solid var(--rule);border-radius:12px;background:var(--raised)}
+.answers-first h2{margin:0 0 8px;font-size:1.05rem}
+.answers-first ol{margin:0;padding-left:1.3em}
+.answers-first li{margin:0 0 8px;line-height:1.7}
+.answers-first li a{display:inline-block;padding:6px 0;min-height:24px;line-height:1.5}
+.answers-first .af-a{display:block;color:var(--ink-3);font-size:.95em}
+.answers-first .note{margin:8px 0 0}
+.answers-first .note a{display:inline-block;padding:8px 0;min-height:24px}
+/* 引用 → 原文のその文へ。飛んだ先だけ目立たせる（普段は本文と同じ） */
+mark.s{background:transparent;color:inherit;scroll-margin-top:24px;border-radius:3px}
+mark.s:target{background:var(--sunken);box-shadow:0 0 0 3px var(--sunken);outline:2px solid var(--accent);outline-offset:3px}
