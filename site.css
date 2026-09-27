@@ -397,3 +397,7 @@ ul.picks a{display:block;border:1px solid var(--rule);border-radius:8px;padding:
 ul.picks a:hover{border-color:var(--accent);background:var(--sunken)}
 ul.picks b{display:block;font-family:var(--serif);font-size:17px;font-weight:600}
 ul.picks span{display:block;font-size:13px;color:var(--ink-3);margin-top:5px;line-height:1.7}
+
+/* 体験の時間割（年額の無料体験が出荷済みのときだけ出る） */
+.trial-line{margin:14px 0 0;padding-left:1.3em;line-height:1.8}
+.trial-line li{margin:0 0 4px}
