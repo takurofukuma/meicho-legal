@@ -172,3 +172,19 @@ dl.gloss dd{margin:0;color:var(--ink-2)}
 /* 引用 → 原文のその文へ。飛んだ先だけ目立たせる（普段は本文と同じ） */
 mark.s{background:transparent;color:inherit;scroll-margin-top:24px;border-radius:3px}
 mark.s:target{background:var(--sunken);box-shadow:0 0 0 2px var(--sunken);border-bottom:2px solid var(--accent);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+/* アプリの実際の回答（畳んで置く。一人称の AI 文は data-nosnippet） */
+details.demo{margin:14px 0 4px;border:1px solid var(--rule);border-radius:12px;background:var(--raised)}
+details.demo>summary{cursor:pointer;padding:12px 14px;font-weight:700;min-height:24px;list-style:none}
+details.demo>summary::before{content:"▸ ";color:var(--accent)}
+details.demo[open]>summary::before{content:"▾ "}
+.demo-body{padding:0 14px 12px}
+.demo-q{display:flex;gap:10px;align-items:flex-start;margin:6px 0 10px;font-weight:700}
+.demo-q span{flex:none;font-size:.8em;font-weight:400;color:var(--ink-3);border:1px solid var(--rule);border-radius:999px;padding:2px 8px}
+.demo-a{background:var(--sunken);border-radius:10px;padding:10px 12px;margin:0 0 10px}
+.demo-a p{margin:0}
+.demo-tag{font-size:.85em;color:var(--ink-3);margin:0 0 6px}
+.demo-quotes{margin:0 0 8px;padding-left:1.3em}
+.demo-quotes li{margin:0 0 8px;line-height:1.7}
+.demo-quotes cite{display:block;font-style:normal;font-size:.85em;color:var(--ink-3)}
+.demo-quotes cite a{display:inline-block;padding:6px 0;min-height:24px}

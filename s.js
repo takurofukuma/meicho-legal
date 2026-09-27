@@ -28,6 +28,14 @@
       es.forEach(function (x) { if (x.isIntersecting && !seen[k]) { seen[k] = 1; send(k); o.disconnect(); } });
     }).observe(el);
   }
+  // 引用→原文の文ジャンプ（商品の核）と、アプリの実回答の開封
+  document.addEventListener("click", function (ev) {
+    var a = ev.target.closest && ev.target.closest("a[href^='#s-']");
+    if (a) send("jump");
+  }, true);
+  Array.prototype.forEach.call(document.querySelectorAll("details.demo"), function (d) {
+    d.addEventListener("toggle", function () { if (d.open) send("demo_open"); });
+  });
   reach("reach_deep", document.querySelector("section.deep"));
   reach("reach_end", document.querySelector("footer") || document.querySelector("main > :last-child"));
 })();
