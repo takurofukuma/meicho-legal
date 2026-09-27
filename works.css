@@ -165,10 +165,10 @@ dl.gloss dd{margin:0;color:var(--ink-2)}
 .answers-first h2{margin:0 0 8px;font-size:1.05rem}
 .answers-first ol{margin:0;padding-left:1.3em}
 .answers-first li{margin:0 0 8px;line-height:1.7}
-.answers-first li a{display:inline-block;padding:6px 0;min-height:24px;line-height:1.5}
+.answers-first li a{display:inline-block;padding:6px 0;min-height:24px;line-height:1.5;vertical-align:top}
 .answers-first .af-a{display:block;color:var(--ink-3);font-size:.95em}
 .answers-first .note{margin:8px 0 0}
 .answers-first .note a{display:inline-block;padding:8px 0;min-height:24px}
 /* 引用 → 原文のその文へ。飛んだ先だけ目立たせる（普段は本文と同じ） */
 mark.s{background:transparent;color:inherit;scroll-margin-top:24px;border-radius:3px}
-mark.s:target{background:var(--sunken);box-shadow:0 0 0 3px var(--sunken);outline:2px solid var(--accent);outline-offset:3px}
+mark.s:target{background:var(--sunken);box-shadow:0 0 0 2px var(--sunken);border-bottom:2px solid var(--accent);-webkit-box-decoration-break:clone;box-decoration-break:clone}
