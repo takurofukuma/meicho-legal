@@ -116,7 +116,7 @@ table.units td.n,table.units th.n{text-align:right;white-space:nowrap}
 .page a{color:var(--accent);text-underline-offset:.28em;
         text-decoration-color:color-mix(in srgb,var(--accent) 65%,transparent)}
 .page a:hover{text-decoration-color:var(--accent)}
-ul.also a,nav.crumbs a,.meta a,.brand a,.page h2 > a,.deep-cta a{
+ul.also a,nav.crumbs a,.meta a,.brand a,.page h2 > a,.deep-cta a,.deep-see a{
   display:inline-block;padding-block:11px;margin-block:-11px}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 /* .page a の色が .cta の白を上書きして、ボタンが文字の無い茶色い塊になっていた */
@@ -147,6 +147,7 @@ section.deep h3{font-family:var(--serif);font-size:clamp(18px,4.6vw,22px);font-w
             line-height:1.95}
 .deep-caution{border-left:3px solid var(--rule-strong);padding:2px 0 2px 14px;
               color:var(--ink-2);line-height:1.95}
+.deep-see{margin:16px 0 0;font-size:15px;line-height:1.9;color:var(--ink-2)}
 .deep-cta{margin-top:16px}
 .deep-cta a{font-weight:700}
 section.deep blockquote.q cite{font-size:12.5px}
