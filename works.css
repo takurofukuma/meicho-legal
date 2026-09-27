@@ -116,7 +116,7 @@ table.units td.n,table.units th.n{text-align:right;white-space:nowrap}
 .page a{color:var(--accent);text-underline-offset:.28em;
         text-decoration-color:color-mix(in srgb,var(--accent) 65%,transparent)}
 .page a:hover{text-decoration-color:var(--accent)}
-ul.also a,nav.crumbs a,.meta a,.brand a,.page h2 > a{
+ul.also a,nav.crumbs a,.meta a,.brand a,.page h2 > a,.deep-cta a{
   display:inline-block;padding-block:11px;margin-block:-11px}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 /* .page a の色が .cta の白を上書きして、ボタンが文字の無い茶色い塊になっていた */
@@ -138,3 +138,23 @@ ul.also a,nav.crumbs a,.meta a,.brand a,.page h2 > a{
 .sticky span{font-size:12px;line-height:1.5;color:var(--ink-3);flex:none;max-width:7em}
 @media(max-width:767px){.sticky{display:flex} body{padding-bottom:76px}}
 @media print{.sticky{display:none}}
+
+/* 深い問答。引用のあいだに読み筋を置くので、地の文と引用が交互になる */
+section.deep{margin:34px 0 0;padding-top:26px;border-top:1px solid var(--rule)}
+section.deep h3{font-family:var(--serif);font-size:clamp(18px,4.6vw,22px);font-weight:600;
+                line-height:1.6;margin:0 0 14px;letter-spacing:.005em}
+.deep-short{background:var(--sunken);border-radius:6px;padding:14px 16px;margin:0 0 18px;
+            line-height:1.95}
+.deep-caution{border-left:3px solid var(--rule-strong);padding:2px 0 2px 14px;
+              color:var(--ink-2);line-height:1.95}
+.deep-cta{margin-top:16px}
+.deep-cta a{font-weight:700}
+section.deep blockquote.q cite{font-size:12.5px}
+dl.gloss{margin:16px 0 0;display:grid;grid-template-columns:max-content minmax(0,1fr);
+         gap:8px 18px;font-size:14.5px;line-height:1.85}
+dl.gloss dt{font-weight:700;white-space:nowrap}
+dl.gloss dd{margin:0;color:var(--ink-2)}
+@media(max-width:767px){
+  dl.gloss{grid-template-columns:minmax(0,1fr);gap:2px 0}
+  dl.gloss dd{margin:0 0 10px}
+}
