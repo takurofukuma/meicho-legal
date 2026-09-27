@@ -153,7 +153,7 @@ section.deep h3{font-family:var(--serif);font-size:clamp(18px,4.6vw,22px);font-w
 section.deep blockquote.q cite{font-size:12.5px}
 dl.gloss{margin:16px 0 0;display:grid;grid-template-columns:max-content minmax(0,1fr);
          gap:8px 18px;font-size:14.5px;line-height:1.85}
-dl.gloss dt{font-weight:700;white-space:nowrap}
+dl.gloss dt{font-weight:700;overflow-wrap:anywhere}
 dl.gloss dd{margin:0;color:var(--ink-2)}
 @media(max-width:767px){
   dl.gloss{grid-template-columns:minmax(0,1fr);gap:2px 0}
