@@ -188,3 +188,5 @@ details.demo[open]>summary::before{content:"▾ "}
 .demo-quotes li{margin:0 0 8px;line-height:1.7}
 .demo-quotes cite{display:block;font-style:normal;font-size:.85em;color:var(--ink-3)}
 .demo-quotes cite a{display:inline-block;padding:6px 0;min-height:24px}
+/* 引用の出どころのリンクは押す物なので、指の高さ（24px）を確保する */
+blockquote.q cite a{display:inline-block;padding:6px 0;min-height:24px}
